@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Prefabs")]
     public Rigidbody2D rb;
-    public Vector2 move_direction;
-    public float move_speed = 0;
 
-    private float speed_scalar = 5;
+    [Space]
+
+    [Header("Weapon Attributes")]
+    public float MOVESPEED = 5.75f;
+
+    [Space]
+
+    [Header("Input Settings")]
+    public Vector2 move_direction;
+    public float move_speed;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +44,6 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMove()
     {
-        rb.velocity = move_direction * move_speed * speed_scalar; 
+        rb.velocity = move_direction * move_speed * MOVESPEED; 
     }
 }
