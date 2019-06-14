@@ -251,10 +251,9 @@ GameObject:
   - component: {fileID: 1913046293}
   - component: {fileID: 1913046292}
   - component: {fileID: 1913046295}
-  - component: {fileID: 1913046294}
-  - component: {fileID: 1913046296}
-  - component: {fileID: 1913046297}
   - component: {fileID: 1913046291}
+  - component: {fileID: 1913046294}
+  - component: {fileID: 1913046297}
   m_Layer: 0
   m_Name: TempChar
   m_TagString: Untagged
@@ -275,9 +274,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  hitbox: {fileID: 0}
   MOVESPEED: 5.75
+  COOLDOWN: 5
   move_direction: {x: 0, y: 0}
   move_speed: 0
+  dash_speed: 15
+  start_time: 0.15
+  cooldown: 3
+  dashing: 0
 --- !u!212 &1913046292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -378,22 +383,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1913046296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913046290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041f68ae730167c46b83eb36ae1f05ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  MOVESPEED: 5
-  move_direction: {x: 0, y: 0}
-  move_speed: 0
 --- !u!210 &1913046297
 SortingGroup:
   m_ObjectHideFlags: 0
