@@ -31,9 +31,6 @@ public class PlayerController : MonoBehaviour
         //Movement
         PlayerMoveProcessing();
         PlayerMove();
-
-        //Attack based on weapon and skill combinations
-        
     }
 
     void PlayerMoveProcessing()
