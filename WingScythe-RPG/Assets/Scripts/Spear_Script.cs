@@ -6,6 +6,7 @@ public class Spear_Script : MonoBehaviour
 {
     [Header("General Attributes")]
     public int attack_counter;
+    public float cooldown;
 
     [Space]
 
