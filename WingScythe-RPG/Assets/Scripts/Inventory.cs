@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public CanvasGroup inven;
+     public CanvasGroup inven;
     // Update is called once per frame
     void Update()
     {
@@ -15,11 +15,18 @@ public class Inventory : MonoBehaviour
             inven.interactable = true;
             inven.blocksRaycasts = true;
         }
-        else if(Input.GetKeyDown(KeyCode.I) && inven.alpha == 1f)
+        else if(inven.alpha == 1f)
         {
-            inven.alpha = 0f;
-            inven.interactable = false;
-            inven.blocksRaycasts = false;
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inven.alpha = 0f;
+                inven.interactable = false;
+                inven.blocksRaycasts = false;
+            }
         }
         
     }
