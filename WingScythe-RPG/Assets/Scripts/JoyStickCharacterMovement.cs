@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JoyStickCharacterMovement : MonoBehaviour
 {
-    /*
+    
     public Animator anim;
     public Joystick joystick;
     // Start is called before the first frame update
@@ -17,7 +17,24 @@ public class JoyStickCharacterMovement : MonoBehaviour
 
     void Update()
     {
-        float direction = joystick.horizontal;
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            anim.SetBool("num1", true);
+            anim.SetBool("num2", false);
+        }
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            anim.SetBool("num1", false);
+            anim.SetBool("num2", true);
+        }
+        else
+        {
+            anim.SetBool("num1", false);
+            anim.SetBool("num2", false);
+        }
+    }
+    /*
+        float direction = joystick.Horizontal;
         if (direction > 0)
         {
             anim.SetFloat("Direction", 1.0f);
@@ -45,7 +62,5 @@ public class JoyStickCharacterMovement : MonoBehaviour
         {
             anim.SetFloat("Speed", 0.0f);
         }
-        
-    }
     */
 }
