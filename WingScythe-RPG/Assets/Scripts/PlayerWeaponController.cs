@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ public class PlayerWeaponController : MonoBehaviour
         //TODO: Get initial weapons from metadata
 
         //TODO: Do initialization
+        weapon1 = Spear.CreateInstance<Spear>();
+        weapon2 = Spear.CreateInstance<Spear>();
+
+
         slot = true;
     }
 
@@ -31,6 +36,24 @@ public class PlayerWeaponController : MonoBehaviour
             slot = !slot;
             swapWeapon();
         }
+
+        //Weapon Attacks
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            PlayerBasicAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerSpecialAttack(1);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerSpecialAttack(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            PlayerSpecialAttack(3);
+        }
     }
 
     public void swapWeapon()
@@ -42,7 +65,7 @@ public class PlayerWeaponController : MonoBehaviour
     public void EquipWeapon(Item new_weap)
     {
         //Check if the item is a weapon
-        if(new_weap.type != "weapon")
+        if(new_weap.getType() != "weapon")
         {
             //Print error message
             return;
@@ -80,22 +103,34 @@ public class PlayerWeaponController : MonoBehaviour
 
     //Instantly replaces the given weapon slot with the new weapon.
     //WARNING: Any weapon that remained in given weapon_slot will be lost.
-    void instant_replace(Item weapon_slot, Item new_weap)
+    private void instant_replace(Item weapon_slot, Item new_weap)
     {
         weapon2 = new_weap;
         //TODO: Do initialization
         return;
     }
 
-    public void PlayerBasicAttack()
+    private void PlayerBasicAttack()
     {
         if (slot)
         {
-            weapon1.Basic_Attack();
+            //weapon1.Basic_Attack();
         }
         else
         {
-            weapon2.Basic_Attack();
+            //weapon2.Basic_Attack();
+        }
+    }
+
+    private void PlayerSpecialAttack(int index)
+    {
+        if (slot)
+        {
+            //weapon1.Special_Attack(index);
+        }
+        else
+        {
+            //weapon2.Special_Attack(index);
         }
     }
 }

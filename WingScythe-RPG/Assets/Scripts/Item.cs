@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public abstract class Item : ScriptableObject
 {
     [Header("Item Attributes")]
-    public string item_name;
-    public string type;
-    public GameObject item;
+    protected string item_name = null;
+    protected string type = null;
+    protected GameObject item = null;
 
     [Space]
 
@@ -19,6 +19,20 @@ public abstract class Item : MonoBehaviour
         if(item!=null && item.type != "weapon") {
             item.quantity--;
         }
+        return item;
+    }
+
+    public string getItemName()
+    {
+        return item_name;
+    }
+
+    public string getType()
+    {
+        return type;
+    }
+    public GameObject getitem()
+    {
         return item;
     }
 
