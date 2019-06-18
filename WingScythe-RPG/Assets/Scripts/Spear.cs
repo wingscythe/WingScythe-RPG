@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Spear_Script : Item
+public class Spear : Item
 {
     [Header("General Attributes")]
     public int attack_counter;
