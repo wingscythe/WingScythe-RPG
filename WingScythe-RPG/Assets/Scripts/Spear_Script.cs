@@ -40,4 +40,9 @@ public class Spear_Script : Item
     {
         throw new System.NotImplementedException();
     }
+
+    public override void DoubleClick()
+    {
+        //TODO: Equip Weap
+    }
 }

@@ -25,4 +25,5 @@ public abstract class Item : MonoBehaviour
     public abstract void Consume();
     public abstract void Basic_Attack();
     public abstract void Special_Attack(int index);
+    public abstract void DoubleClick();
 }
