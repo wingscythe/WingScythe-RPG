@@ -47,6 +47,7 @@ public class Inventory : MonoBehaviour
         }
         else if (inven.alpha == 1f)
         {
+            image[i].GetComponent<Image>().color = orig;
             inven.alpha = 0f;
             inven.interactable = false;
             inven.blocksRaycasts = false;
