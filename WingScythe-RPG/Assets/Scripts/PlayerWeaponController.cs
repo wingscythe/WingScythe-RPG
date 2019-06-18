@@ -11,7 +11,7 @@ public class PlayerWeaponController : MonoBehaviour
     [Space]
 
     [Header("Player Settings")]
-    public int slot = 1;
+    public bool slot;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +19,41 @@ public class PlayerWeaponController : MonoBehaviour
         //TODO: Get initial weapons from metadata
 
         //TODO: Do initialization
+        slot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Keypress Swap
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            slot = !slot;
+            swapWeapon();
+        }
+    }
+
+    public void swapWeapon()
+    {
+        int s = 0;
+        if (!slot)
+        {
+            s = 1;
+        }
+
+        int i = 0;
+        foreach(Transform weapon in transform)
+        {
+            if(i == s)
+            {
+                weapon.gameObject.SetActive(true);
+            }
+            else
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            i++;
+        }
     }
 
     public void EquipWeapon(Item new_weap)
@@ -50,24 +79,19 @@ public class PlayerWeaponController : MonoBehaviour
         }
 
         //Since both weapons exist, replace currently equipped weapon
-        switch (slot)
-        {
-            case 1:
-                //TODO: place old weapon in slot 1 in inventory.
+        if (slot)
+        { 
+            //TODO: place old weapon in slot 1 in inventory.
 
-                //Now that hand is empty, instantly replace
-                instant_replace(weapon, new_weap);
-                break;
-            case 2:
-                //TODO: place old weapon in slot 2 in inventory.
+            //Now that hand is empty, instantly replace
+            instant_replace(weapon, new_weap);
+        }
+        else
+        { 
+            //TODO: place old weapon in slot 2 in inventory.
 
-                //Now that hand is empty, instantly replace
-                instant_replace(weapon2, new_weap);
-
-                break;
-            default:
-                //TODO: Print error message
-                break;
+            //Now that hand is empty, instantly replace
+            instant_replace(weapon2, new_weap);
         }
     }
 
