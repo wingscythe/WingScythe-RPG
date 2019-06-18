@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 52513857}
   - component: {fileID: 52513856}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HP & MP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2836,6 +2836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inven: {fileID: 1459781141}
+  image: {fileID: 0}
 --- !u!225 &1459781141
 CanvasGroup:
   m_ObjectHideFlags: 0
