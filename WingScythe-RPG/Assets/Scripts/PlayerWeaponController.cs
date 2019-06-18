@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeaponController : MonoBehaviour
 {
     [Header("Weapon Attributes")]
-    public Item weapon;
+    public Item weapon1;
     public Item weapon2;
 
     [Space]
@@ -49,16 +49,16 @@ public class PlayerWeaponController : MonoBehaviour
         }
 
         //If the character has no weapon, instantly equip weapon
-        if(weapon == null)
+        if(weapon1 == null)
         {
-            instant_replace(weapon, new_weap);
+            instant_replace(weapon1, new_weap);
             return;
         }
 
         //Since old weapon exists, first try second slot
         if(weapon2 == null)
         {
-            instant_replace(weapon, new_weap);
+            instant_replace(weapon2, new_weap);
         }
 
         //Since both weapons exist, replace currently equipped weapon
@@ -67,7 +67,7 @@ public class PlayerWeaponController : MonoBehaviour
             //TODO: place old weapon in slot 1 in inventory.
 
             //Now that hand is empty, instantly replace
-            instant_replace(weapon, new_weap);
+            instant_replace(weapon1, new_weap);
         }
         else
         { 
@@ -85,5 +85,17 @@ public class PlayerWeaponController : MonoBehaviour
         weapon2 = new_weap;
         //TODO: Do initialization
         return;
+    }
+
+    public void PlayerBasicAttack()
+    {
+        if (slot)
+        {
+            weapon1.Basic_Attack();
+        }
+        else
+        {
+            weapon2.Basic_Attack();
+        }
     }
 }

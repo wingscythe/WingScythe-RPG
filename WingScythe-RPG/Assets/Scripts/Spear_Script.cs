@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Spear_Script : MonoBehaviour
+public class Spear_Script : Item
 {
     [Header("General Attributes")]
     public int attack_counter;
@@ -23,13 +21,23 @@ public class Spear_Script : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    
+    //}
+
+    public override void Basic_Attack()
     {
         
     }
 
-    void Basic_Attack()
+    public override void Special_Attack(int index)
     {
 
+    }
+
+    public override void Consume()
+    {
+        throw new System.NotImplementedException();
     }
 }

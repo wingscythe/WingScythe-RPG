@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public abstract class Item : MonoBehaviour
 {
     [Header("Item Attributes")]
     public string item_name;
@@ -21,4 +21,8 @@ public class Item
         }
         return item;
     }
+
+    public abstract void Consume();
+    public abstract void Basic_Attack();
+    public abstract void Special_Attack(int index);
 }
