@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 52513856}
   - component: {fileID: 52513858}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HP & MP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,6 +152,7 @@ RectTransform:
   m_Children:
   - {fileID: 729849075}
   - {fileID: 107813788}
+  - {fileID: 684471595}
   m_Father: {fileID: 185217119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -226,7 +227,7 @@ GameObject:
   - component: {fileID: 91523655}
   - component: {fileID: 91523654}
   m_Layer: 5
-  m_Name: Item10
+  m_Name: Item7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +245,7 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.5499999, z: 1}
   m_Children: []
   m_Father: {fileID: 870627808}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -320,7 +321,6 @@ RectTransform:
   m_Children:
   - {fileID: 397276038}
   - {fileID: 452204143}
-  - {fileID: 684471595}
   m_Father: {fileID: 52513855}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 107813790}
-  m_TextComponent: {fileID: 452204144}
+  m_TextComponent: {fileID: 0}
   m_Placeholder: {fileID: 397276039}
   m_ContentType: 0
   m_InputType: 0
@@ -466,7 +466,6 @@ GameObject:
   - component: {fileID: 120111843}
   - component: {fileID: 120111845}
   - component: {fileID: 120111844}
-  - component: {fileID: 120111846}
   m_Layer: 5
   m_Name: Item1
   m_TagString: Untagged
@@ -530,18 +529,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120111842}
   m_CullTransparentMesh: 0
---- !u!114 &120111846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120111842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd27591e92b801e408226217ece20c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &135631673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452204143}
   - component: {fileID: 452204145}
+  - component: {fileID: 452204146}
   - component: {fileID: 452204144}
   m_Layer: 5
   m_Name: Text
@@ -1270,7 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1286,8 +1274,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 0
-    m_HorizontalOverflow: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100
@@ -1299,6 +1287,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452204142}
   m_CullTransparentMesh: 0
+--- !u!114 &452204146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452204142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09067fb90e63be042853bd1e5d14a9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hptext: {fileID: 452204144}
+  hp: 100
 --- !u!1 &525739981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,7 +1379,7 @@ GameObject:
   - component: {fileID: 651176620}
   - component: {fileID: 651176619}
   m_Layer: 5
-  m_Name: Item8
+  m_Name: Item10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1397,7 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.5499999, z: 1}
   m_Children: []
   m_Father: {fileID: 870627808}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1525,6 +1527,7 @@ GameObject:
   - component: {fileID: 684471598}
   - component: {fileID: 684471597}
   - component: {fileID: 684471596}
+  - component: {fileID: 684471599}
   m_Layer: 5
   m_Name: MP
   m_TagString: MP
@@ -1541,16 +1544,16 @@ RectTransform:
   m_GameObject: {fileID: 684471594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8000001, z: 1}
   m_Children:
   - {fileID: 1691951214}
   - {fileID: 2052366901}
-  m_Father: {fileID: 107813788}
+  m_Father: {fileID: 52513855}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -28}
+  m_AnchoredPosition: {x: 22.000008, y: -14.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684471596
@@ -1593,7 +1596,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 684471597}
-  m_TextComponent: {fileID: 2052366902}
+  m_TextComponent: {fileID: 0}
   m_Placeholder: {fileID: 1691951215}
   m_ContentType: 0
   m_InputType: 0
@@ -1679,6 +1682,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684471594}
   m_CullTransparentMesh: 0
+--- !u!114 &684471599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684471594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581a76f14b3b15946aeda37dce2d3573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hptext: {fileID: 2052366902}
+  mp: 100
 --- !u!1 &695775013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1912,7 @@ GameObject:
   - component: {fileID: 729849077}
   - component: {fileID: 729849076}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: MP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2157,10 +2174,10 @@ RectTransform:
   - {fileID: 1259573286}
   - {fileID: 671426236}
   - {fileID: 1953263383}
+  - {fileID: 91523653}
+  - {fileID: 961218803}
   - {fileID: 1771484022}
   - {fileID: 651176618}
-  - {fileID: 961218803}
-  - {fileID: 91523653}
   - {fileID: 145624885}
   m_Father: {fileID: 1459781139}
   m_RootOrder: 0
@@ -2219,7 +2236,7 @@ GameObject:
   - component: {fileID: 961218805}
   - component: {fileID: 961218804}
   m_Layer: 5
-  m_Name: Item9
+  m_Name: Item8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2237,7 +2254,7 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.5499999, z: 1}
   m_Children: []
   m_Father: {fileID: 870627808}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2849,6 +2866,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inven: {fileID: 1459781141}
+  image:
+  - {fileID: 120111843}
+  - {fileID: 1349603601}
+  - {fileID: 1105369629}
+  - {fileID: 1259573286}
+  - {fileID: 671426236}
+  - {fileID: 1953263383}
+  - {fileID: 91523653}
+  - {fileID: 961218803}
+  - {fileID: 1771484022}
+  - {fileID: 651176618}
+  time: 0
 --- !u!225 &1459781141
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3563,7 +3592,7 @@ GameObject:
   - component: {fileID: 1771484024}
   - component: {fileID: 1771484023}
   m_Layer: 5
-  m_Name: Item7
+  m_Name: Item9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3581,7 +3610,7 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.5499999, z: 1}
   m_Children: []
   m_Father: {fileID: 870627808}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3975,7 +4004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9215687, g: 0.9215687, b: 0.9215687, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3991,8 +4020,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 0
-    m_HorizontalOverflow: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100

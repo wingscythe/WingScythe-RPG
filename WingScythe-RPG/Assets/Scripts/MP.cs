@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HP : MonoBehaviour
+public class MP : MonoBehaviour
 {
     public Text hptext;
-    public int hp = 100;
+    public int mp = 100;
 
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            hp--;
-            hptext.text = getHp().ToString();
+            mp--;
+            hptext.text = getMp().ToString();
         }
     }
 
-    int getHp()
+    int getMp()
     {
-        return hp;
+        return mp;
     }
 
 

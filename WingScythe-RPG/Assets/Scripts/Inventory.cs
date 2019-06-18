@@ -1,12 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-     public CanvasGroup inven;
+    public CanvasGroup inven;
+    public Component[] image = new Component[10];
+    public float time = 0;
+    private int i = 0;
+    private Color orig;
     // Update is called once per frame
+    private void Start()
+    {
+        orig = image[i].GetComponent<Image>().color;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I) && inven.alpha == 0f)
@@ -15,8 +24,9 @@ public class Inventory : MonoBehaviour
             inven.interactable = true;
             inven.blocksRaycasts = true;
         }
-        else if(inven.alpha == 1f)
+        else if (inven.alpha == 1f)
         {
+            counter();
             if (Input.GetKeyDown(KeyCode.D))
             {
 
@@ -27,8 +37,25 @@ public class Inventory : MonoBehaviour
                 inven.interactable = false;
                 inven.blocksRaycasts = false;
             }
-        }
-        
+            if (Math.Floor(counter()) % 2 == 0) image[i].GetComponent<Image>().color = Color.red;
+            else if (Math.Floor(counter()) % 2 == 1) image[i].GetComponent<Image>().color = orig;
+            if (Input.GetKeyDown(KeyCode.D)&&i<9)
+            {
+                image[i].GetComponent<Image>().color = orig;
+                i++;
+            }
+            if (Input.GetKeyDown(KeyCode.A) && i > 0)
+            {
+                image[i].GetComponent<Image>().color = orig;
+                i--;
+            }
+        } 
+    }
+
+    float counter()
+    {
+        time += Time.deltaTime;
+        return time;
     }
 }
 
