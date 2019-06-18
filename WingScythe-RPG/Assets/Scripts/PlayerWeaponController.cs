@@ -35,25 +35,8 @@ public class PlayerWeaponController : MonoBehaviour
 
     public void swapWeapon()
     {
-        int s = 0;
-        if (!slot)
-        {
-            s = 1;
-        }
-
-        int i = 0;
-        foreach(Transform weapon in transform)
-        {
-            if(i == s)
-            {
-                weapon.gameObject.SetActive(true);
-            }
-            else
-            {
-                weapon.gameObject.SetActive(false);
-            }
-            i++;
-        }
+        transform.GetChild(0).gameObject.SetActive(slot);
+        transform.GetChild(1).gameObject.SetActive(!slot);
     }
 
     public void EquipWeapon(Item new_weap)
