@@ -26,18 +26,18 @@ public class Test_JoyStick_Controller : MonoBehaviour
         float leftRight = joystick.Horizontal;
         float frontBack = joystick.Vertical;
         
-        if (leftRight < -0.5f && this.gameObject.GetComponent<SpriteRenderer>().flipX == true) {
+        if (leftRight < -0.25f && this.gameObject.GetComponent<SpriteRenderer>().flipX == true) {
             this.gameObject.transform.Translate(new Vector3(-0.05f, 0f, 0f));
         }
-        else if (leftRight > 0.5f && this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
+        else if (leftRight > 0.25f && this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
             this.gameObject.transform.Translate(new Vector3(0.05f, 0f, 0f));
         }
-        else if (frontBack < -0.5f)
+        else if (frontBack < -0.25f)
         {
             this.gameObject.transform.Translate(new Vector3(0f, -0.05f, 0f));
         }
-        else if (frontBack > 0.5f)
+        else if (frontBack > 0.25f)
         {
             this.gameObject.transform.Translate(new Vector3(0f, 0.05f, 0f));
         }
