@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public abstract class Item : ScriptableObject
 {
     [Header("Item Attributes")]
-    public string item_name;
-    public string type;
-    public GameObject item;
+    protected string item_name = null;
+    protected string type = null;
+    protected GameObject item = null;
 
     [Space]
 
@@ -21,4 +21,23 @@ public class Item
         }
         return item;
     }
+
+    public string getItemName()
+    {
+        return item_name;
+    }
+
+    public string getType()
+    {
+        return type;
+    }
+    public GameObject getitem()
+    {
+        return item;
+    }
+
+    public abstract void Consume();
+    public abstract void Basic_Attack();
+    public abstract void Special_Attack(int index);
+    public abstract void DoubleClick();
 }
