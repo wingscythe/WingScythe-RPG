@@ -42,13 +42,18 @@ public class Weapon : MonoBehaviour, Item
         {
             cooldown -= Time.deltaTime;
         }
-        else if(RESET > 0)
+        if(RESET > 0)
         {
             RESET -= Time.deltaTime;
-        }else if(RESET <= 0)
+        }
+        if (RESET <= 0)
         {
             attack_counter = 0;
             animator.SetInteger("Attack", attack_counter);
+            animator.SetBool("Basic_Attack", false);
+            animator.SetBool("Special_Attack_1", false);
+            animator.SetBool("Special_Attack_2", false);
+            animator.SetBool("Special_Attack_3", false);
         }
     }
 
@@ -60,18 +65,26 @@ public class Weapon : MonoBehaviour, Item
             return;
         }
 
+        cooldown += 1f;
         animator.SetBool("Basic_Attack",true);
         attack_counter++;
         animator.SetInteger("Attack", attack_counter);
-        RESET = 2f;
+        if (attack_counter < 3)
+        {
+            RESET = 2f;
+        }
     }
 
     public void Special_Attack(int index)
     {
+        cooldown += 1f;
         animator.SetBool("Special_Attack_" + index, true);
         attack_counter++;
         animator.SetInteger("Attack", attack_counter);
-        RESET = 2f;
+        if (attack_counter < 3)
+        {
+            RESET = 2f;
+        }
     }
 
     public void Consume()
