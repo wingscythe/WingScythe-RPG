@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spear : Item
+public class Weapon : MonoBehaviour, Item
 {
     [Header("Weapon Attributes")]
+    public string item_name;
     public int attack_counter;
     public float cooldown;
     public float RESET = 2f;
@@ -13,6 +14,17 @@ public class Spear : Item
     [Header("Spear Attributes")]
     public int range;
     private Animator animator;
+
+    [Space]
+
+    [Header("Stats")]
+    public float STR = 0;
+    public float DEF = 0;
+    public float INT = 0;
+    public float AGI = 0;
+    public float DEX = 0;
+    public float LUC = 0;
+    public float WHT = 0;
     
     //Stats
 
@@ -20,10 +32,7 @@ public class Spear : Item
     void Start()
     {
         attack_counter = 0;
-        item_name = "Spear";
-        type = "weapon";
-        item = Instantiate(Resources.Load("Spear/Spear.prefab", typeof(GameObject)), Vector2.zero, Quaternion.identity) as GameObject;
-        animator = item.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,14 +44,15 @@ public class Spear : Item
         }
         else if(RESET > 0)
         {
-            RESET--;
+            RESET -= Time.deltaTime;
         }else if(RESET <= 0)
         {
             attack_counter = 0;
+            animator.SetInteger("Attack", attack_counter);
         }
     }
 
-    public override void Basic_Attack()
+    public void Basic_Attack()
     {
         if(cooldown > 0)
         {
@@ -50,26 +60,26 @@ public class Spear : Item
             return;
         }
 
-        animator.SetTrigger("Basic_Attack");
+        animator.SetBool("Basic_Attack",true);
         attack_counter++;
-        cooldown += 1f;
+        animator.SetInteger("Attack", attack_counter);
         RESET = 2f;
     }
 
-    public override void Special_Attack(int index)
+    public void Special_Attack(int index)
     {
-        animator.SetTrigger("Special_Attack_" + index);
+        animator.SetBool("Special_Attack_" + index, true);
         attack_counter++;
-        cooldown += 1f;
+        animator.SetInteger("Attack", attack_counter);
         RESET = 2f;
     }
 
-    public override void Consume()
+    public void Consume()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void DoubleClick()
+    public void DoubleClick()
     {
         //TODO: Equip Weap
     }
