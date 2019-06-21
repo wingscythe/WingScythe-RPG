@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
+ 
         if (inven.alpha == 1f)
         {
             joy.interactable = false;
@@ -40,6 +41,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
     void TaskOnClick()
     {
         if (inven.alpha == 0f)
@@ -54,11 +56,12 @@ public class Inventory : MonoBehaviour
             inven.alpha = 0f;
             inven.interactable = false;
             inven.blocksRaycasts = false;
+            joy.interactable = true;
+            joy.blocksRaycasts = true;
             i = 0;
             counter();
         }   
     }
-
     float counter()
     {
         time += Time.deltaTime;
