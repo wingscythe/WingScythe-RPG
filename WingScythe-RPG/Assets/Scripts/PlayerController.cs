@@ -6,35 +6,37 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Prefabs")]
     public Rigidbody2D rb;
-    public CircleCollider2D hitbox;
+    public Animator anim;
+    public Joystick joystick;
 
     [Space]
 
     [Header("Weapon Attributes")]
-    public float MOVESPEED = 5.75f;
-    public float COOLDOWN = 5f;
+    public float MOVESPEED = 0.05f;
+    public float COOLDOWN = 3f;
 
     [Space]
 
     [Header("Input Settings")]
     public Vector2 move_direction;
-    public float move_speed;
 
     [Space]
 
     [Header("Dash Attributes")]
-    public float dash_speed;
-    private float dash_time;
-    public float start_time;
-    public float cooldown;
+    public float dash_speed = 0.3f;
+    private float dash_time = 0f;
+    public float start_time = 0.15f;
+    public float cooldown = 0f;
     public bool dashing;
+    public float frontBack;
+    public float leftRight;
 
     // Start is called before the first frame update
     void Start()
     {
         //State Calibration
         rb = GetComponent<Rigidbody2D>();
-        hitbox = GetComponent<CircleCollider2D>();
+        anim = this.gameObject.GetComponent<Animator>();
         dash_time = start_time;
         cooldown = 0;
         dashing = false;
@@ -46,12 +48,11 @@ public class PlayerController : MonoBehaviour
         //Movement
         if (!dashing)
         {
-            PlayerMoveProcessing();
+            movement();
         }
 
-        if ((Input.GetKeyDown(KeyCode.C) && cooldown <= 0) || dashing)
+        if (dashing || (Input.GetKeyDown(KeyCode.C) && cooldown <= 0))
         {
-            hitbox.enabled = false;
             dashing = true;
             PlayerDash();
             cooldown = COOLDOWN;
@@ -61,38 +62,77 @@ public class PlayerController : MonoBehaviour
         {
             cooldown -= Time.deltaTime;
         }
+    }
 
-        if (!dashing)
+    void movement()
+    {
+
+        leftRight = joystick.Horizontal;
+        frontBack = joystick.Vertical;
+
+        if (leftRight < -0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == true)
         {
-            PlayerMove();
+            this.gameObject.transform.Translate(new Vector3(-MOVESPEED, 0f, 0f));
         }
+        else if (leftRight > 0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
+        {
+            this.gameObject.transform.Translate(new Vector3(MOVESPEED, 0f, 0f));
+        }
+        else if (frontBack < -0.2f)
+        {
+            this.gameObject.transform.Translate(new Vector3(0f, -MOVESPEED, 0f));
+        }
+        else if (frontBack > 0.2f)
+        {
+            this.gameObject.transform.Translate(new Vector3(0f, MOVESPEED, 0f));
+        }
+
+        anim.SetFloat("Vertical_Walk", Mathf.Abs(leftRight));
+        anim.SetFloat("Horizontal_Walk", frontBack);
+
+        if (leftRight > 0.2f)
+        {
+            anim.SetBool("Horizontal_Move", true);
+            anim.SetBool("Face_Back", false);
+            if (this.gameObject.GetComponent<SpriteRenderer>().flipX == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        else if (leftRight < -0.2f)
+        {
+            anim.SetBool("Horizontal_Move", true);
+            anim.SetBool("Face_Back", false);
+            if (this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+        else if (frontBack > 0.2f)
+        {
+            anim.SetBool("Face_Back", true);
+            anim.SetBool("Horizontal_Move", false);
+        }
+        else if (frontBack < -0.2f)
+        {
+            anim.SetBool("Face_Back", false);
+            anim.SetBool("Horizontal_Move", false);
+        }
+
     }
 
-    void PlayerMoveProcessing()
-    {
-        move_direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        move_speed = Mathf.Clamp(move_direction.magnitude, 0.0f, 1.0f);
-        move_direction.Normalize();
-    }
-
-    void PlayerMove()
-    {
-        rb.velocity = move_direction * move_speed * MOVESPEED; 
-    }
-    
     void PlayerDash()
-    {
+    {   
         if (dash_time<=0)
         {
             dash_time = start_time;
             dashing = false;
-            hitbox.enabled = true;
         }
 
         if (dash_time > 0)
         {
             dash_time -= Time.deltaTime;
-            rb.velocity = move_direction * dash_speed;
+            this.gameObject.transform.Translate(new Vector3(leftRight, frontBack, 0f) * dash_speed);
         }
     }
 }
