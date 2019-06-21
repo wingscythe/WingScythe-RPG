@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public CanvasGroup inven;
     public CanvasGroup joy;
     public Component[] image = new Component[10];
+    public List<GameObject> items;
     public Button invent;
     public float time = 0;
     private int i = 0;
@@ -66,6 +67,16 @@ public class Inventory : MonoBehaviour
     {
         time += Time.deltaTime;
         return time;
+    }
+
+    public void addItems(GameObject item)
+    {
+        items.Add(item);
+    }
+
+    public List<GameObject> getItems()
+    {
+        return items;
     }
 }
 
