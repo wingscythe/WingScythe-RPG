@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - attack
-  - HP
-  - MP
-  - item
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -46,5 +42,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Player
-    uniqueID: 1402262485
+    uniqueID: 1334912869
+    locked: 0
+  - name: Slime
+    uniqueID: 791475439
     locked: 0
