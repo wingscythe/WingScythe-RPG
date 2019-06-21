@@ -9,10 +9,12 @@ public class Inventory : MonoBehaviour
     public CanvasGroup inven;
     public CanvasGroup joy;
     public Component[] image = new Component[10];
+    public List<GameObject> items;
     public Button invent;
     public float time = 0;
     private int i = 0;
     private Color orig;
+    private GameObject item;
     // Update is called once per frame
     private void Start()
     {
@@ -66,6 +68,17 @@ public class Inventory : MonoBehaviour
     {
         time += Time.deltaTime;
         return time;
+    }
+
+    public void addItem()
+    {
+        items.Add(item);
+    }
+
+    public List<GameObject> getItems()
+    {
+        return items;
+        
     }
 }
 
