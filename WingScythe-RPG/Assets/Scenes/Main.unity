@@ -150,6 +150,36 @@ Transform:
   m_Father: {fileID: 5717589384533930406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &901865008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5334043835085501317, guid: 67634e915e150ae4086a4a465fee65e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 386924582294028564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &901865009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901865008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a328eb4510f15b4b8a8ccdfcd61f9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item_name: 
+  attack_counter: 0
+  cooldown: 0
+  RESET: 2
+  range: 0
+  STR: 0
+  DEF: 0
+  INT: 0
+  AGI: 0
+  DEX: 0
+  LUC: 0
+  WHT: 0
 --- !u!1 &2139662468
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5d45c827c452247a8e1da9df624d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon1: {fileID: 0}
+  weapon2: {fileID: 0}
+  weapon: {fileID: 0}
+  ws: {fileID: 0}
   slot: 0
 --- !u!50 &5717589384533930404
 Rigidbody2D:
