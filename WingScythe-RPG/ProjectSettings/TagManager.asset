@@ -7,6 +7,7 @@ TagManager:
   - attack
   - HP
   - MP
+  - item
   layers:
   - Default
   - TransparentFX
