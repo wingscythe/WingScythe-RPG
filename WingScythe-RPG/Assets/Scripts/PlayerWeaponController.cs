@@ -37,6 +37,15 @@ public class PlayerWeaponController : MonoBehaviour
         //Keypress Swap
         if (Input.GetKeyDown(KeyCode.X))
         {
+            if (slot)
+            {
+                weapon = weapon2;
+            }
+            else
+            {
+                weapon = weapon1;
+            }
+            ws = weapon.GetComponent<Weapon>();
             slot = !slot;
             swapWeapon();
         }
