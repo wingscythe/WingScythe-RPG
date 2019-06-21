@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HP : MonoBehaviour
 {
     public Text hptext;
+    public Image hP;
     public int hp = 100;
 
 
@@ -16,6 +17,17 @@ public class HP : MonoBehaviour
             hp--;
             hptext.text = getHp().ToString();
         }
+        if (getHp() <= 50)
+        {
+            hptext.color = Color.black;
+            hP.color = Color.yellow;
+        }
+
+        if (getHp() <= 25)
+        {
+            hP.color = Color.red;
+        }
+
     }
 
     int getHp()

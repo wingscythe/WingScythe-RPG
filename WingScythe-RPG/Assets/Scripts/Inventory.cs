@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public CanvasGroup inven;
+    public CanvasGroup joy;
     public Component[] image = new Component[10];
     public Button invent;
     public float time = 0;
@@ -21,8 +22,11 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
+ 
         if (inven.alpha == 1f)
         {
+            joy.interactable = false;
+            joy.blocksRaycasts = false;
             if (Math.Floor(counter()) % 2 == 0) image[i].GetComponent<Image>().color = Color.red;
             else if (Math.Floor(counter()) % 2 == 1) image[i].GetComponent<Image>().color = orig;
             if (Input.GetKeyDown(KeyCode.D) && i < 9)
@@ -37,6 +41,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
     void TaskOnClick()
     {
         if (inven.alpha == 0f)
@@ -51,11 +56,12 @@ public class Inventory : MonoBehaviour
             inven.alpha = 0f;
             inven.interactable = false;
             inven.blocksRaycasts = false;
+            joy.interactable = true;
+            joy.blocksRaycasts = true;
             i = 0;
             counter();
-        } 
+        }   
     }
-
     float counter()
     {
         time += Time.deltaTime;
