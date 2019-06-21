@@ -70,15 +70,16 @@ public class Inventory : MonoBehaviour
         return time;
     }
 
-    public void addItem()
+public void addItems(GameObject item)
+
     {
         items.Add(item);
     }
 
-    public List<GameObject> getItems()
+public List<GameObject> getItems()
     {
         return items;
-        
+
     }
 }
 
