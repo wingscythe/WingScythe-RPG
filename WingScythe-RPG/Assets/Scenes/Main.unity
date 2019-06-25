@@ -7229,6 +7229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: potion_test
       objectReference: {fileID: 0}
+    - target: {fileID: 8041980931183296270, guid: 1564c700e6e91cd4987964d8a7ba5963,
+        type: 3}
+      propertyPath: m_TagString
+      value: Consumable
+      objectReference: {fileID: 0}
     - target: {fileID: 4839797062829036497, guid: 1564c700e6e91cd4987964d8a7ba5963,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12888,7 +12893,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

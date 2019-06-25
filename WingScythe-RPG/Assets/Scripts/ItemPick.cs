@@ -6,10 +6,9 @@ public class ItemPick : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("smth");
-        if (other.tag == "Consumable")
+        if (other.gameObject.tag == "Consumable")
         {
-            Debug.Log("hit");
+            Destroy(other.gameObject);
         }
     }
 }
