@@ -83,7 +83,7 @@ public class Inventory : MonoBehaviour
         items.Add(item);
     }
 
-public List<GameObject> getItems()
+    public List<GameObject> getItems()
     {
         return items;
 
