@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weapon : MonoBehaviour, Item
+public class Weapon : MonoBehaviour
 {
+    //Ryan Note: Maybe Write an IWeapon.
+
     [Header("Weapon Attributes")]
     public string item_name;
     public int attack_counter;

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Item
+public class Item
 {
-    void Consume();
-    void DoubleClick();
+    
 }
