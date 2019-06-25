@@ -11,7 +11,7 @@ public class SW : MonoBehaviour
     public GameObject weapon1;
     public GameObject weapon2;
     public GameObject weapon;
-    public Weapon ws;
+    public IWeapon ws;
     public bool slot;
     public Button attack;
     public Button spAtk1;
@@ -25,7 +25,7 @@ public class SW : MonoBehaviour
 
         slot = true;
         weapon = weapon1;
-        ws = weapon.GetComponent<Weapon>();
+        ws = weapon.GetComponent<IWeapon>();
         sw.onClick.AddListener(TaskOnClick);
         attack.onClick.AddListener(Basic);
         spAtk1.onClick.AddListener(SpAtk1);
@@ -43,7 +43,7 @@ public class SW : MonoBehaviour
         {
             weapon = weapon1;
         }
-        ws = weapon.GetComponent<Weapon>();
+        ws = weapon.GetComponent<IWeapon>();
         slot = !slot;
         swapWeapon();
     }
