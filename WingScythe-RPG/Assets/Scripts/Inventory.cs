@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     public Component[] image = new Component[10];
     public List<GameObject> items;
     public Button invent;
+    public GameObject hero;
     public float time = 0;
     private int i = 0;
     private Color orig;
@@ -70,7 +71,13 @@ public class Inventory : MonoBehaviour
         return time;
     }
 
-public void addItems(GameObject item)
+
+
+    public void addWeapon()
+    {
+        addItems(hero.transform.GetChild(0).gameObject);
+    }
+    public void addItems(GameObject item)
 
     {
         items.Add(item);

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Weapon : MonoBehaviour, Item
+public class Weapon : MonoBehaviour
 {
+    //Ryan Note: Maybe Write an IWeapon.
+
     [Header("Weapon Attributes")]
     public string item_name;
     public int attack_counter;
@@ -95,5 +98,10 @@ public class Weapon : MonoBehaviour, Item
     public void DoubleClick()
     {
         //TODO: Equip Weap
+    }
+
+    public static implicit operator Weapon(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

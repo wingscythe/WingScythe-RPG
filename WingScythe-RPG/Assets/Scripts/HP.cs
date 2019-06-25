@@ -28,11 +28,17 @@ public class HP : MonoBehaviour
             hP.color = Color.red;
         }
 
+        if (getHp() == 0) restart();
     }
 
     int getHp()
     {
         return hp;
+    }
+
+    void restart()
+    {
+        //dies here
     }
 
 

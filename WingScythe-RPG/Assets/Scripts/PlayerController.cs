@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [Space]
 
     [Header("Input Settings")]
-    public Vector2 move_direction;
+    public float frontBack;
+    public float leftRight;
 
     [Space]
 
@@ -28,8 +29,6 @@ public class PlayerController : MonoBehaviour
     public float start_time = 0.15f;
     public float cooldown = 0f;
     public bool dashing;
-    public float frontBack;
-    public float leftRight;
 
     // Start is called before the first frame update
     void Start()

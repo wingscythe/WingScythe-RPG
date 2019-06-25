@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Item
+public class Item
 {
-    void Consume();
-    void DoubleClick();
+    public List<Stat> Stats { get; set; }
+    public string name { get; set; }
+    public bool item_mod { get; set; }
 }
