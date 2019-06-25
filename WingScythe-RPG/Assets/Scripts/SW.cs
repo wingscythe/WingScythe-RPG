@@ -26,11 +26,6 @@ public class SW : MonoBehaviour
         sw.onClick.AddListener(TaskOnClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void TaskOnClick()
     {
         if (slot)

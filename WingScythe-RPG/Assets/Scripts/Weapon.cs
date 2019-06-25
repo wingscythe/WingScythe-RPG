@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Weapon : MonoBehaviour
 {
@@ -97,5 +98,10 @@ public class Weapon : MonoBehaviour
     public void DoubleClick()
     {
         //TODO: Equip Weap
+    }
+
+    public static implicit operator Weapon(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

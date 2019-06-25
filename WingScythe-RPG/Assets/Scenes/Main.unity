@@ -359,13 +359,12 @@ MonoBehaviour:
   joystick: {fileID: 750530293}
   MOVESPEED: 0.05
   COOLDOWN: 3
-  move_direction: {x: 0, y: 0}
+  frontBack: 0
+  leftRight: 0
   dash_speed: 0.4
   start_time: 0.15
   cooldown: 0
   dashing: 0
-  frontBack: 0
-  leftRight: 0
 --- !u!114 &42500073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,6 +1283,7 @@ GameObject:
   - component: {fileID: 340233250}
   - component: {fileID: 340233249}
   - component: {fileID: 340233248}
+  - component: {fileID: 340233251}
   m_Layer: 5
   m_Name: SwitchWeapon
   m_TagString: Untagged
@@ -1393,6 +1393,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340233246}
   m_CullTransparentMesh: 0
+--- !u!114 &340233251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340233246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65032a45f1e94a14299c794b2bf0d78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sw: {fileID: 340233248}
+  hero: {fileID: 42500065}
+  weapon1: {fileID: 0}
+  weapon2: {fileID: 0}
+  weapon: {fileID: 0}
+  ws: {fileID: 0}
+  slot: 0
 --- !u!1 &400296036
 GameObject:
   m_ObjectHideFlags: 0
@@ -7740,6 +7759,7 @@ GameObject:
   - component: {fileID: 1056470213}
   - component: {fileID: 1056470212}
   - component: {fileID: 1056470211}
+  - component: {fileID: 1056470215}
   m_Layer: 5
   m_Name: ToggleAttacks
   m_TagString: Untagged
@@ -7842,6 +7862,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1056470215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056470209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b3f633c23848f438d6488bbbd86d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 1961835914}
+  spAtk1: {fileID: 1464920549}
+  spAtk2: {fileID: 129715948}
+  spAtk3: {fileID: 573643768}
+  wp: {fileID: 0}
+  hero: {fileID: 42500065}
 --- !u!1 &1061676040
 GameObject:
   m_ObjectHideFlags: 0
@@ -12753,7 +12791,7 @@ GameObject:
   - component: {fileID: 1464920549}
   - component: {fileID: 1464920548}
   m_Layer: 5
-  m_Name: Moves
+  m_Name: Move 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
