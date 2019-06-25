@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerWeaponController : MonoBehaviour
 {
+    //Fix This to IWeapons or something later.
     [Header("Weapon Attributes")]
     public GameObject weapon1;
     public GameObject weapon2;
