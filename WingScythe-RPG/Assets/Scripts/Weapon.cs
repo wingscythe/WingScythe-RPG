@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
-public class Weapon : MonoBehaviour
-{
-    //Ryan Note: Maybe Write an IWeapon.
-
+public class Weapon : MonoBehaviour, IWeapon
+{ 
     [Header("Weapon Attributes")]
     public string item_name;
     public int attack_counter;
@@ -18,6 +17,7 @@ public class Weapon : MonoBehaviour
     public int range;
     private Animator animator;
 
+    /*
     [Space]
 
     [Header("Stats")]
@@ -28,7 +28,9 @@ public class Weapon : MonoBehaviour
     public float DEX = 0;
     public float LUC = 0;
     public float WHT = 0;
-    
+    */
+    public List<Stat> Stats { get; set; }
+
     //Stats
 
     // Start is called before the first frame update
