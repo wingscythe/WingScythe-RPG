@@ -3,7 +3,7 @@
 [Serializable]
 public class Stat
 {
-    //Maybe add enum type.
+    public enum BaseStatType { ATK, DEF, INT, AGI, DEX, LUC, WHT }
 
     public string stat { get; set; }
     public string type { get; set; }
@@ -18,4 +18,5 @@ public class Stat
         stat = name;
         description = desc;
     }
+
 }

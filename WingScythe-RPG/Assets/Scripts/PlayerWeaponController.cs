@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class PlayerWeaponController : MonoBehaviour
 {
+    //Fix This to IWeapons or something later.
     [Header("Weapon Attributes")]
     public GameObject weapon1;
     public GameObject weapon2;
 
     public GameObject weapon;
-    public Weapon ws;
+    public IWeapon ws;
 
     [Space]
 
@@ -28,7 +29,7 @@ public class PlayerWeaponController : MonoBehaviour
 
         slot = true;
         weapon = weapon1;
-        ws = weapon.GetComponent<Weapon>();
+        ws = weapon.GetComponent<IWeapon>();
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class PlayerWeaponController : MonoBehaviour
             {
                 weapon = weapon1;
             }
-            ws = weapon.GetComponent<Weapon>();
+            ws = weapon.GetComponent<IWeapon>();
             slot = !slot;
             swapWeapon();
         }

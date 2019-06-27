@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Weapon : MonoBehaviour, IWeapon
+public class Spear : MonoBehaviour, IWeapon
 { 
     [Header("Weapon Attributes")]
     public string item_name;
@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour, IWeapon
     // Start is called before the first frame update
     void Start()
     {
+        item_name = "Spear";
         attack_counter = 0;
         animator = GetComponent<Animator>();
     }
@@ -100,10 +101,5 @@ public class Weapon : MonoBehaviour, IWeapon
     public void DoubleClick()
     {
         //TODO: Equip Weap
-    }
-
-    public static implicit operator Weapon(GameObject v)
-    {
-        throw new NotImplementedException();
     }
 }

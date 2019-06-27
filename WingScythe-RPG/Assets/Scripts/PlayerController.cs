@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Get Saved State
+
         //State Calibration
         rb = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
