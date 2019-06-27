@@ -26,7 +26,7 @@ public class ItemDatabase : MonoBehaviour
     public Item GetItem(string id)
     {
         if (File.Exists(Application.persistentDataPath + "/" + id + ".wingscythe")) {
-            FileStream stream = new FileStream(Application.persistentDataPath + "/" + id + ".wingscythe", FileMode.Open);
+            FileStream stream = new FileStream("./Assets/Resources/ItemData/" + id + ".wingscythe", FileMode.Open);
 
             Item item = bf.Deserialize(stream) as Item;
             stream.Close();
@@ -38,7 +38,7 @@ public class ItemDatabase : MonoBehaviour
 
     public void SaveItem(Item save)
     {
-        FileStream stream = new FileStream(Application.persistentDataPath + "/" + save.id + ".wingscythe", FileMode.Create);
+        FileStream stream = new FileStream("./Assets/Resources/ItemData/" + save.id + ".wingscythe", FileMode.Create);
 
         bf.Serialize(stream, save);
         stream.Close();
