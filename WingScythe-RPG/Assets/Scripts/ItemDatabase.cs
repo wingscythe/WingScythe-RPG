@@ -32,6 +32,7 @@ public class ItemDatabase : MonoBehaviour
             stream.Close();
             return item;
         }
+        Debug.Log("failed, doesn't exist");
         return null;
     }
 
