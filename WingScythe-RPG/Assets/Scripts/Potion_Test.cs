@@ -6,11 +6,11 @@ public class Potion_Test : MonoBehaviour, IConsumable
 {
     public void Consume()
     {
-        print("Consumed!");
+        Debug.Log("Consumed!");
     }
 
     public void Consume(PlayerStats stats)
     {
-        print("Consumed, but nothing happens to the player!");
+        Debug.Log("Consumed, but nothing happens to the player!");
     }
 }

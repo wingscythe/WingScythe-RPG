@@ -1,4 +1,7 @@
-﻿public class Stat
+﻿using System;
+
+[Serializable]
+public class Stat
 {
     public enum BaseStatType { ATK, DEF, INT, AGI, DEX, LUC, WHT }
 

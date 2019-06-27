@@ -9,15 +9,19 @@ public class Inventory : MonoBehaviour
     public CanvasGroup inven;
     public CanvasGroup joy;
     public Component[] image = new Component[10];
-    public List<GameObject> items;
+    public static List<Item> items;
+    public static int size;
     public Button invent;
     public GameObject hero;
     public float time = 0;
     private int i = 0;
     private Color orig;
+    private GameObject item;
     // Update is called once per frame
     private void Start()
     {
+        items = new List<Item>();
+        size = 10;
         orig = image[i].GetComponent<Image>().color;
         invent.onClick.AddListener(TaskOnClick);
     }
@@ -70,18 +74,24 @@ public class Inventory : MonoBehaviour
         return time;
     }
 
-    public void addWeapon()
+    public static void addItems(Item item)
     {
-        addItems(hero.transform.GetChild(0).gameObject);
-    }
-    public void addItems(GameObject item)
-    {
-        items.Add(item);
+        if (items.Count < size)
+        {
+            items.Add(item);
+            Debug.Log(item.name + " was added");
+        }
+        else
+        {
+            //TODO: Error statement, inventory full.
+            return;
+        }
     }
 
-    public List<GameObject> getItems()
+    public List<Item> getItems()
     {
         return items;
+
     }
 }
 
