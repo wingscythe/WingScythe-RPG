@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+using System.IO;
+
 public class ItemPick : MonoBehaviour
 {
     //Testing 
@@ -10,8 +13,14 @@ public class ItemPick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Item curr = ItemDatabase.Instance.GetItem("potion_test");
-            Debug.Log(curr.name);
-            Instantiate<GameObject>(Resources.Load("/Consumables/" + curr.name, typeof(GameObject)) as GameObject);
+            if (File.Exists("./Assets/Resources/Consumables/" + curr.name + ".prefab"))
+            {
+                Instantiate(Resources.Load("Consumables/" + curr.name) as GameObject);
+            }
+            else
+            {
+                Debug.Log("Doesn't Exist");
+            }
         }
     }
 
