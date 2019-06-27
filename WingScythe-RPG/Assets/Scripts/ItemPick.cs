@@ -11,9 +11,7 @@ public class ItemPick : MonoBehaviour
         {
             Item curr = ItemDatabase.Instance.GetItem("potion_test");
             Debug.Log(curr.name);
-            Debug.Log(curr.id);
-            Debug.Log(curr.description);
-            Debug.Log(curr.stats);
+            Instantiate<GameObject>(Resources.Load("/Consumables/" + curr.name, typeof(GameObject)) as GameObject);
         }
     }
 
@@ -21,9 +19,16 @@ public class ItemPick : MonoBehaviour
     {
         if (other.gameObject.tag == "item")
         {
+            //New Item Manual Save:
+
+            /*
             ItemTag it = other.gameObject.GetComponent<ItemTag>();
             Item item = new Item(it.item_name, it.id, it.description);
             ItemDatabase.Instance.SaveItem(item);
+            */
+
+            //Add sprite and id to inventory.
+
             Destroy(other.gameObject);
         }
     }
