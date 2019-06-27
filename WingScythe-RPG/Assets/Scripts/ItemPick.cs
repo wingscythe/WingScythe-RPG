@@ -8,7 +8,7 @@ public class ItemPick : MonoBehaviour
     {
         if (other.gameObject.tag == "item")
         {
-            Destroy(other.gameObject);
+            Inventory.addItems(other.gameObject);   
         }
     }
 }
