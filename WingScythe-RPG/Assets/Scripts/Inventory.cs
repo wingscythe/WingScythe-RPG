@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     public CanvasGroup inven;
     public CanvasGroup joy;
     public Component[] image = new Component[10];
-    public static List<GameObject> items;
+    public static List<Item> items;
     public static int size;
     public Button invent;
     public GameObject hero;
@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        items = new List<GameObject>();
+        items = new List<Item>();
         size = 10;
         orig = image[i].GetComponent<Image>().color;
         invent.onClick.AddListener(TaskOnClick);
@@ -74,13 +74,7 @@ public class Inventory : MonoBehaviour
         return time;
     }
 
-
-
-    public void addWeapon()
-    {
-        addItems(hero.transform.GetChild(0).gameObject);
-    }
-    public static void addItems(GameObject item)
+    public static void addItems(Item item)
     {
         if (items.Count < size)
         {
@@ -94,7 +88,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public List<GameObject> getItems()
+    public List<Item> getItems()
     {
         return items;
 

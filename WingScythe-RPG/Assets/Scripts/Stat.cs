@@ -1,4 +1,7 @@
-﻿public class Stat
+﻿using System;
+
+[Serializable]
+public class Stat
 {
     //Maybe add enum type.
 
