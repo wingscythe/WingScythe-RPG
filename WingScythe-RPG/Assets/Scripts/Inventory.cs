@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
         else
         {
             //TODO: Error statement, inventory full.
-            return;
+               return;
         }
     }
 
