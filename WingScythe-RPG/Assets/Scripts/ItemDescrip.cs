@@ -8,7 +8,6 @@ public class ItemDescrip : MonoBehaviour
     private Item item;
     private string input;
     private GameObject descrip;
-    // Start is called before the first frame update
     void Start()
     {
         descrip = GameObject.Find("Descrip");
@@ -26,9 +25,20 @@ public class ItemDescrip : MonoBehaviour
     {
         descrip.SetActive(false);
     }
+
     public void CreateString()
     {
-        input = item.description;
+        if (input == null)
+        {
+            input = text();
+        }
 
     }
+
+    public string text()
+    {
+        return item.description;
+    }
+
+
 }

@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
         else
         {
             //TODO: Error statement, inventory full.
-               return;
+            return;
         }
     }
 
@@ -92,6 +92,17 @@ public class Inventory : MonoBehaviour
     {
         return items;
 
+    }
+
+    public int getSize()
+    {
+
+        return size;
+    }
+
+    public void addSize(int n)
+    {
+        size += n;
     }
 }
 
