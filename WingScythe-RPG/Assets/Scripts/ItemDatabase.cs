@@ -38,6 +38,7 @@ public class ItemDatabase : MonoBehaviour
 
     public void SaveItem(Item save)
     {
+        //Ryan Note: Might have to tweak this for weapons and consumables, maybe like a type identifier on top of an ID save.
         FileStream stream = new FileStream("./Assets/Resources/ItemData/" + save.id + ".wingscythe", FileMode.Create);
 
         bf.Serialize(stream, save);

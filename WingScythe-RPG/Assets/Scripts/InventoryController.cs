@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
@@ -28,5 +29,10 @@ public class InventoryController : MonoBehaviour
     public void GiveItem(string id)
     {
         items.Add(ItemDatabase.Instance.GetItem(id));
+    }
+
+    public void SetItemDetails(Item item, Button b)
+    {
+        //TODO: set item information
     }
 }
