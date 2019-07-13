@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
- 
+        //if inventory is present flashes colors
         if (inven.alpha == 1f)
         {
             joy.interactable = false;
@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
                 image[i].GetComponent<Image>().color = orig;
                 i++;
             }
-            if (Input.GetKeyDown(KeyCode.A) && i > 0)
+            if (Input.GetKeyDown(KeyCode.A) && i > 0) // change left and right
             {
                 image[i].GetComponent<Image>().color = orig;
                 i--;
@@ -50,6 +50,7 @@ public class Inventory : MonoBehaviour
 
     void TaskOnClick()
     {
+        //if inventory button is clicked, inventory pops up and joystick is disabled
         if (inven.alpha == 0f)
         {
             inven.alpha = 1f;
@@ -74,6 +75,7 @@ public class Inventory : MonoBehaviour
         return time;
     }
 
+    //add items to inventory when picked up
     public static void addItems(Item item)
     {
         if (items.Count < size)
@@ -88,18 +90,21 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //return list of items
     public List<Item> getItems()
     {
         return items;
 
     }
 
+    //how big inventory is
     public int getSize()
     {
 
         return size;
     }
 
+    //upgrade size 
     public void addSize(int n)
     {
         size += n;
