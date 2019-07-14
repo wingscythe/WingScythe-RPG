@@ -24,11 +24,16 @@ public class InventoryController : MonoBehaviour
 
         pwc = GetComponent<PlayerWeaponController>();
         pc = GetComponent<PlayerConsume>();
+
+        // Not implemented yet: GiveItem("spear");
+        GiveItem("potion_test");
     }
 
     public void GiveItem(string id)
     {
-        items.Add(ItemDatabase.Instance.GetItem(id));
+        Item item = ItemDatabase.Instance.GetItem(id);
+        items.Add(item);
+        UIEventHandler.ItemAddedToInventory(item);
     }
 
     public void SetItemDetails(Item item, Button b)

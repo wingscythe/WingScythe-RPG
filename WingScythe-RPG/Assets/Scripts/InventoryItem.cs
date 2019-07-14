@@ -9,7 +9,7 @@ public class InventoryItem : MonoBehaviour
     public string item_text;
     public Sprite item_image;
 
-    public void Setup(Item item)
+    public void SetItem(Item item)
     {
         this.item = item;
         item_text = item.name;

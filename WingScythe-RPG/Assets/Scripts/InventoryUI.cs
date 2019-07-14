@@ -4,13 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
+    //Empty Container for duplication
+    InventoryItem itemContainer { get; set; }
+
+    //List of UI Items
+    List<InventoryItem> itemUIList = new List<InventoryItem>();
+
+    //Size of the inventory TODO: Think about what happens if we expand past set amount
+    public static int size;
+
+    //UNSORTED:
     public CanvasGroup inven;
     public CanvasGroup joy;
     public Component[] image = new Component[10];
-    public static List<Item> items;
-    public static int size;
     public Button invent;
     public GameObject hero;
     public float time = 0;
@@ -20,7 +28,10 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        items = new List<Item>();
+        UIEventHandler.OnItemAddedToInventory += ItemAdded;
+        itemContainer = Resources.Load<InventoryItem>("UI/ItemContainer"); //TODO: ASK @Jeff about container
+
+        //Unsorted Section:
         size = 10;
         orig = image[i].GetComponent<Image>().color;
         invent.onClick.AddListener(TaskOnClick);
@@ -48,6 +59,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ItemAdded(Item item)
+    {
+        InventoryItem emptyItem = Instantiate(itemContainer);
+        emptyItem.SetItem(item);
+        itemUIList.Add(emptyItem);
+        //TODO: emptyItem.transform.SetParent();
+    }
+
+    //TODO: Ask @Jeff about using SetActive instead. Not sure about implications of both methods.
     void TaskOnClick()
     {
         //if inventory button is clicked, inventory pops up and joystick is disabled
@@ -74,7 +94,9 @@ public class Inventory : MonoBehaviour
         time += Time.deltaTime;
         return time;
     }
+}
 
+/* OLD CODE FOR BACKUP:
     //add items to inventory when picked up
     public static void addItems(Item item)
     {
@@ -109,5 +131,4 @@ public class Inventory : MonoBehaviour
     {
         size += n;
     }
-}
-
+    */
