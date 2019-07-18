@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     InventoryItem itemContainer { get; set; }
 
     //List of UI Items
-    List<InventoryItem> itemUIList = new List<InventoryItem>();
+    public List<InventoryItem> itemUIList = new List<InventoryItem>();
 
     //Size of the inventory TODO: Think about what happens if we expand past set amount
     public static int size;
@@ -35,6 +35,7 @@ public class InventoryUI : MonoBehaviour
         size = 10;
         orig = image[i].GetComponent<Image>().color;
         invent.onClick.AddListener(TaskOnClick);
+        Debug.Log("InventoryUI Initialized! Time: " + Time.fixedTime);
     }
 
     private void Update()
@@ -64,7 +65,7 @@ public class InventoryUI : MonoBehaviour
         InventoryItem emptyItem = Instantiate(itemContainer);
         emptyItem.SetItem(item);
         itemUIList.Add(emptyItem);
-        //TODO: emptyItem.transform.SetParent();
+        emptyItem.transform.SetParent(this.gameObject.transform);
     }
 
     //TODO: Ask @Jeff about using SetActive instead. Not sure about implications of both methods.

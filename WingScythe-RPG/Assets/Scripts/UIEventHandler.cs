@@ -21,7 +21,14 @@ public class UIEventHandler : MonoBehaviour
     public static void ItemAddedToInventory(Item item)
     {
         if (OnItemAddedToInventory != null)
+        {
             OnItemAddedToInventory(item);
+            Debug.Log(item.name + " added! Time: " + Time.fixedTime);
+        }
+        else
+        {
+            Debug.Log(item.name + " **NOT** added! Time: " + Time.fixedTime);
+        }
     }
 
     public static void ItemAddedToInventory(List<Item> items)

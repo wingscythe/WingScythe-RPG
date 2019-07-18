@@ -32,8 +32,11 @@ public class InventoryController : MonoBehaviour
     public void GiveItem(string id)
     {
         Item item = ItemDatabase.Instance.GetItem(id);
-        items.Add(item);
-        UIEventHandler.ItemAddedToInventory(item);
+        if(item !=  null)
+        {
+            items.Add(item);
+            UIEventHandler.ItemAddedToInventory(item);
+        }
     }
 
     public void SetItemDetails(Item item, Button b)

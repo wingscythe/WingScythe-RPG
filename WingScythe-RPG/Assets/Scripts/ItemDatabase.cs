@@ -21,13 +21,13 @@ public class ItemDatabase : MonoBehaviour
         {
             Instance = this;
         }
+        Debug.Log("Database Initialized! Time: " + Time.fixedTime);
     }
 
     public Item GetItem(string id)
     {
-        if (File.Exists(Application.persistentDataPath + "/" + id + ".wingscythe")) {
+        if (File.Exists("./Assets/Resources/ItemData/" + id + ".wingscythe")) {
             FileStream stream = new FileStream("./Assets/Resources/ItemData/" + id + ".wingscythe", FileMode.Open);
-
             Item item = bf.Deserialize(stream) as Item;
             stream.Close();
             return item;

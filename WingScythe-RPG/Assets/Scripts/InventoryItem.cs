@@ -14,6 +14,8 @@ public class InventoryItem : MonoBehaviour
         this.item = item;
         item_text = item.name;
         item_image = Resources.Load<Sprite>("UI/Items/" + item.id);
+        Image img = GetComponent<Image>();
+        img.sprite = item_image;
     }
 
     public void OnSelectItemButton()
