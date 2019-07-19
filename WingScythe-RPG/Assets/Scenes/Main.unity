@@ -204,8 +204,10 @@ GameObject:
   - component: {fileID: 42500071}
   - component: {fileID: 42500073}
   - component: {fileID: 42500072}
-  - component: {fileID: 42500066}
   - component: {fileID: 42500074}
+  - component: {fileID: 42500066}
+  - component: {fileID: 42500076}
+  - component: {fileID: 42500075}
   m_Layer: 0
   m_Name: hero
   m_TagString: Player
@@ -405,6 +407,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d353b5fbaaca23349af9a9d85c10adec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &42500075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42500065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d89b86c84f9f224d8338d8bd4bcc79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pwc: {fileID: 0}
+  pc: {fileID: 0}
+  items: []
+--- !u!114 &42500076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42500065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587d04f6c7bc903448559937dfba32f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &60620652
@@ -4952,7 +4981,6 @@ GameObject:
   - component: {fileID: 615478073}
   - component: {fileID: 615478072}
   - component: {fileID: 615478071}
-  - component: {fileID: 615478070}
   m_Layer: 5
   m_Name: InventoryClick
   m_TagString: Untagged
@@ -4980,34 +5008,6 @@ RectTransform:
   m_AnchoredPosition: {x: 285, y: 92}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &615478070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615478068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf143aa76cf5fcc49b669a6c64580756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inven: {fileID: 2121798965}
-  joy: {fileID: 1628317548}
-  image:
-  - {fileID: 752899324}
-  - {fileID: 336261946}
-  - {fileID: 1067927079}
-  - {fileID: 999871491}
-  - {fileID: 1132064366}
-  - {fileID: 1727285167}
-  - {fileID: 911848369}
-  - {fileID: 990110605}
-  - {fileID: 439324214}
-  - {fileID: 173674548}
-  invent: {fileID: 615478071}
-  hero: {fileID: 0}
-  time: 0
 --- !u!114 &615478071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15478,6 +15478,7 @@ GameObject:
   - component: {fileID: 2086665141}
   - component: {fileID: 2086665143}
   - component: {fileID: 2086665142}
+  - component: {fileID: 2086665144}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -15553,6 +15554,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086665140}
   m_CullTransparentMesh: 0
+--- !u!114 &2086665144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086665140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf143aa76cf5fcc49b669a6c64580756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemUIList: []
+  inven: {fileID: 2121798965}
+  joy: {fileID: 1628317548}
+  image:
+  - {fileID: 752899324}
+  - {fileID: 336261946}
+  - {fileID: 1067927079}
+  - {fileID: 999871491}
+  - {fileID: 1132064366}
+  - {fileID: 1727285167}
+  - {fileID: 911848369}
+  - {fileID: 990110605}
+  - {fileID: 439324214}
+  - {fileID: 173674548}
+  invent: {fileID: 615478071}
+  hero: {fileID: 0}
+  time: 0
 --- !u!1 &2121798964
 GameObject:
   m_ObjectHideFlags: 0
