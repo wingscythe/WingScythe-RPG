@@ -38,7 +38,10 @@ public class HP : MonoBehaviour
 
     void restart()
     {
-        //dies here
+        if (hp == 0)
+        {
+            //dies here
+        }
     }
 
 
