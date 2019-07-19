@@ -10,6 +10,9 @@ public class InventoryUI : MonoBehaviour
     //Empty Container for duplication
     InventoryItem itemContainer { get; set; }
 
+    //Temporary Variable
+    int slot = 1;
+
     //List of UI Items
     public List<InventoryItem> itemUIList = new List<InventoryItem>();
 
@@ -64,7 +67,10 @@ public class InventoryUI : MonoBehaviour
         InventoryItem emptyItem = Instantiate(itemContainer);
         emptyItem.SetItem(item);
         itemUIList.Add(emptyItem);
-        emptyItem.transform.SetParent(this.gameObject.transform);
+        Transform parent = this.transform.Find("Item" + slot).transform;
+        emptyItem.transform.SetParent(parent);
+        emptyItem.transform.position = parent.position;
+        slot++;
     }
 
     //TODO: Ask @Jeff about using SetActive instead. Not sure about implications of both methods.
