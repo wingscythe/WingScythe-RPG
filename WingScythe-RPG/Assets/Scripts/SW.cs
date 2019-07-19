@@ -33,6 +33,7 @@ public class SW : MonoBehaviour
         spAtk3.onClick.AddListener(SpAtk3);
     }
 
+    //switch weapon button
     void TaskOnClick()
     {
         if (slot)
@@ -54,6 +55,7 @@ public class SW : MonoBehaviour
         weapon2.SetActive(!slot);
     }
 
+    //special attacks built into buttons
     public void Basic()
     {
         ws.Basic_Attack();

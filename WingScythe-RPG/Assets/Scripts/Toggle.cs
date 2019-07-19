@@ -16,6 +16,7 @@ public class Toggle : MonoBehaviour
 
     private void TaskOnClick()
     {
+        //toggles on 3 moves
         if (attack.alpha == 1f || moves.alpha == 0f)
         {
             attack.alpha = 0f;
