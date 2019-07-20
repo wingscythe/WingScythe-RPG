@@ -15581,7 +15581,8 @@ MonoBehaviour:
   - {fileID: 439324214}
   - {fileID: 173674548}
   invent: {fileID: 615478071}
-  hero: {fileID: 0}
+  hero: {fileID: 42500065}
+  joystick: {fileID: 750530293}
   time: 0
 --- !u!1 &2121798964
 GameObject:

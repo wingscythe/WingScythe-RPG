@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class InventoryUI : MonoBehaviour
 {
     //Empty Container for duplication
     InventoryItem itemContainer { get; set; }
+
+    //Temporary Variable
+    int slot = 1;
 
     //List of UI Items
     public List<InventoryItem> itemUIList = new List<InventoryItem>();
@@ -20,7 +24,7 @@ public class InventoryUI : MonoBehaviour
     public CanvasGroup joy;
     public Component[] image = new Component[10];
     public Button invent;
-    public GameObject hero;
+    public Joystick joystick;
     public float time = 0;
     private int i = 0;
     private Color orig;
@@ -30,7 +34,6 @@ public class InventoryUI : MonoBehaviour
     {
         UIEventHandler.OnItemAddedToInventory += ItemAdded;
         itemContainer = Resources.Load<InventoryItem>("UI/ItemContainer"); //TODO: ASK @Jeff about container
-
         //Unsorted Section:
         size = 10;
         orig = image[i].GetComponent<Image>().color;
@@ -41,18 +44,17 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         //if inventory is present flashes colors
+        float leftRight = joystick.Horizontal;
         if (inven.alpha == 1f)
-        {
-            joy.interactable = false;
-            joy.blocksRaycasts = false;
+        { 
             if (Math.Floor(counter()) % 2 == 0) image[i].GetComponent<Image>().color = Color.red;
             else if (Math.Floor(counter()) % 2 == 1) image[i].GetComponent<Image>().color = orig;
-            if (Input.GetKeyDown(KeyCode.D) && i < 9)
+            if (leftRight > 0.5f && i < 9)
             {
                 image[i].GetComponent<Image>().color = orig;
                 i++;
             }
-            if (Input.GetKeyDown(KeyCode.A) && i > 0) // change left and right
+            if (leftRight < -0.5f && i > 0) // change left and right
             {
                 image[i].GetComponent<Image>().color = orig;
                 i--;
@@ -65,7 +67,10 @@ public class InventoryUI : MonoBehaviour
         InventoryItem emptyItem = Instantiate(itemContainer);
         emptyItem.SetItem(item);
         itemUIList.Add(emptyItem);
-        emptyItem.transform.SetParent(this.gameObject.transform);
+        Transform parent = this.transform.Find("Item" + slot).transform;
+        emptyItem.transform.SetParent(parent);
+        emptyItem.transform.position = parent.position;
+        slot++;
     }
 
     //TODO: Ask @Jeff about using SetActive instead. Not sure about implications of both methods.
@@ -88,7 +93,7 @@ public class InventoryUI : MonoBehaviour
             joy.blocksRaycasts = true;
             i = 0;
             counter();
-        }   
+        }
     }
     float counter()
     {
