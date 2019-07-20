@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8722244907106941613}
   - component: {fileID: 8722244907106941614}
   - component: {fileID: 8722244907106941648}
-  - component: {fileID: 8722244907106941615}
+  - component: {fileID: 7035422389898669531}
   m_Layer: 0
   m_Name: Fists
   m_TagString: Untagged
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8722244907106941615
+--- !u!114 &7035422389898669531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,18 +189,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8722244907106941612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a328eb4510f15b4b8a8ccdfcd61f9c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 198267e20c1f5d6409aa6d45d6215f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_name: 
-  attack_counter: 0
-  cooldown: 0
-  RESET: 2
-  range: 0
-  STR: 0
-  DEF: 0
-  INT: 0
-  AGI: 0
-  DEX: 0
-  LUC: 0
-  WHT: 0
+  item_name: fists
+  id: fists
+  item_mod: 0
+  description: 
+  stats: []

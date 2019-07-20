@@ -25,10 +25,6 @@ public class UIEventHandler : MonoBehaviour
             OnItemAddedToInventory(item);
             Debug.Log(item.name + " added! Time: " + Time.fixedTime);
         }
-        else
-        {
-            Debug.Log(item.name + " **NOT** added! Time: " + Time.fixedTime);
-        }
     }
 
     public static void ItemAddedToInventory(List<Item> items)
@@ -38,6 +34,7 @@ public class UIEventHandler : MonoBehaviour
             foreach (Item item in items)
             {
                 OnItemAddedToInventory(item);
+                Debug.Log(item.name + " added! Time: " + Time.fixedTime);
             }
         }
     }
