@@ -79,7 +79,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -913613263070020506}
   - {fileID: -3717561325932618229}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -643923138613234555}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -172,6 +173,20 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-643923138613234555
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a55609349d05a040b994aaeac66e3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  player: {fileID: 0}
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -633,11 +648,11 @@ AnimationClip:
       value: {fileID: 21300008, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
     - time: 0.5
       value: {fileID: 21300010, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 0.75
+    - time: 0.625
       value: {fileID: 21300012, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 0.875
+    - time: 0.75
       value: {fileID: 21300014, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 1
+    - time: 0.875
       value: {fileID: 21300016, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
     attribute: m_Sprite
     path: 
@@ -654,11 +669,11 @@ AnimationClip:
       value: {fileID: 21300008, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
     - time: 0.5
       value: {fileID: 21300010, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 0.75
+    - time: 0.625
       value: {fileID: 21300012, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 0.875
+    - time: 0.75
       value: {fileID: 21300014, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
-    - time: 1
+    - time: 0.875
       value: {fileID: 21300016, guid: 9d69ae98725365b4b94189120dc1b40a, type: 3}
     attribute: m_Sprite
     path: 
@@ -707,7 +722,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.125
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -1305,25 +1320,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Walk2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1668,8 +1683,8 @@ AnimatorState:
   m_Tag: 
   m_SpeedParameter: Facing
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_CycleOffsetParameter: Random
+  m_TimeParameter: Random
 --- !u!1102 &110229980
 AnimatorState:
   serializedVersion: 5

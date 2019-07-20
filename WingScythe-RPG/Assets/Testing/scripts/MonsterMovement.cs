@@ -8,14 +8,27 @@ public class MonsterMovement : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
 
+    public RaycastHit2D up, down, left, right;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        StartCoroutine(movementDelay(0.3f));
+        up = Physics2D.Raycast(transform.position, new Vector2(0, 1), 1f);
+        down = Physics2D.Raycast(transform.position, new Vector2(0, -1), 1f);
+        left = Physics2D.Raycast(this.transform.position, new Vector2(-1, 0), 1f);
+        right = Physics2D.Raycast(this.transform.position, new Vector2(1, 0), 1f);
+        StartCoroutine(movementDelay(0.5f));
     }
-    
+
+    private void FixedUpdate()
+    {
+        Debug.DrawRay(this.transform.position, new Vector2(0, 1));
+        Debug.DrawRay(this.transform.position, new Vector2(0, -1));
+        Debug.DrawRay(this.transform.position, new Vector2(-1, 0));
+        Debug.DrawRay(this.transform.position, new Vector2(1, 0));
+    }
     IEnumerator movementDelay(float time)
     {
         while (this.gameObject.activeSelf)
@@ -23,11 +36,11 @@ public class MonsterMovement : MonoBehaviour
             yield return new WaitForSeconds(time);
             if (Vector2.Distance(player.transform.position, this.gameObject.transform.position) < 10)
             {
-                Vector2 travel = Vector2.MoveTowards(this.gameObject.transform.position, player.transform.position, 0.5f);
-                this.gameObject.transform.position = travel;
-
                 anim.SetBool("Walk2", true);
                 anim.SetBool("Walk", false);
+                /*Vector2 travel = Vector2.MoveTowards(this.gameObject.transform.position, player.transform.position, 0.25f);
+                this.gameObject.transform.position = travel;
+                
                 if (player.transform.position.x < this.gameObject.transform.position.x)
                 {
                     this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -35,7 +48,7 @@ public class MonsterMovement : MonoBehaviour
                 else if (player.transform.position.x > this.gameObject.transform.position.x)
                 {
                     this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-                }
+                }*/
             }
             else
             {

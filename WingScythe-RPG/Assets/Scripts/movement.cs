@@ -59,11 +59,15 @@ public class movement : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.DrawRay(target.transform.position, new Vector2(0, 1));
-        Debug.DrawRay(target.transform.position, new Vector2(0, -1));
-        Debug.DrawRay(target.transform.position, new Vector2(-1, 0));
-        Debug.DrawRay(target.transform.position, new Vector2(1, 0));
-        if (choice == 1)
+        Debug.DrawRay(target.transform.position, new Vector2(0, 10));
+        Debug.DrawRay(target.transform.position, new Vector2(0, -10));
+        Debug.DrawRay(target.transform.position, new Vector2(-10, 0));
+        Debug.DrawRay(target.transform.position, new Vector2(10, 0));
+        if (up.collider != null || down.collider != null || left.collider != null || right.collider != null) {
+            animator.SetBool("Walk", false);
+            Debug.Log("Hit");
+        }
+        else if (choice == 1)
         {
             target.transform.Translate(new Vector2(0, 0.05f));
         }
