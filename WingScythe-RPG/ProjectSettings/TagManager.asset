@@ -50,11 +50,11 @@ TagManager:
   - name: Monster
     uniqueID: 2735804787
     locked: 0
-  - name: Weapon
-    uniqueID: 4082433087
-    locked: 0
   - name: Player
     uniqueID: 1334912869
+    locked: 0
+  - name: Weapon
+    uniqueID: 4082433087
     locked: 0
   - name: Slime
     uniqueID: 791475439

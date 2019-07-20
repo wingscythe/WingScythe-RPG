@@ -4,6 +4,13 @@ using UnityEngine;
 
 /*
  * This class manually saves any item by keypress. This is in order to make template objects in saved data files.
+ * 
+ * Author: Ryan Xu
+ * 
+ * Authors Note:
+ * Things to do after saving:
+ * -Update UI icon
+ * 
  * */
 public class SaveObject : MonoBehaviour
 {

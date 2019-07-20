@@ -25,7 +25,7 @@ public class InventoryController : MonoBehaviour
         pwc = GetComponent<PlayerWeaponController>();
         pc = GetComponent<PlayerConsume>();
 
-        // Not implemented yet: GiveItem("spear");
+        GiveItem("spear");
         GiveItem("potion_test");
     }
 
