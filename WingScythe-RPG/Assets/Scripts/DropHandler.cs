@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class DropHandler : MonoBehaviour//, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     //drag variables
     public Vector2 start;
