@@ -17,5 +17,6 @@ public class Item
         name = init_name;
         id = init_id;
         description = init_desc;
+        item_mod = false;
     }
 }

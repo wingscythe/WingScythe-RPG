@@ -43,5 +43,6 @@ public class ItemDatabase : MonoBehaviour
 
         bf.Serialize(stream, save);
         stream.Close();
+        Debug.Log("Item Saved!");
     }
 }
