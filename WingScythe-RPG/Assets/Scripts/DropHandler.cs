@@ -10,6 +10,10 @@ public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public Transform parent;
     public GameObject pulled;
 
+   /* public void Start()
+    {
+        pulled = item;
+    }
     public GameObject item
     {
         get
@@ -36,12 +40,16 @@ public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         pulled = null;
-        transform.position = start;
+        if(transform.position!= parent.position)transform.position = start;
 
     }
 
+    //swapping wip
     public void OnDrop(PointerEventData eventData)
     {
-        if (!item) pulled.transform.SetParent(transform);
+        if(!item)pulled.transform.SetParent(transform);
     }
+    */
+
+
 }
