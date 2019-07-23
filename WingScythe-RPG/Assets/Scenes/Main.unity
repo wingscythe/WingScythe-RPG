@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 8722244907106941613, guid: d4edf5ae51ab5c94b9a6fc98a7f09420,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8722244907106941613, guid: d4edf5ae51ab5c94b9a6fc98a7f09420,
         type: 3}
@@ -291,9 +291,9 @@ Transform:
   m_LocalPosition: {x: 0.37, y: 11.88, z: 0}
   m_LocalScale: {x: 8, y: 7, z: 8}
   m_Children:
-  - {fileID: 519420032}
   - {fileID: 1568361039}
   - {fileID: 101542359}
+  - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -698,7 +698,7 @@ PrefabInstance:
     - target: {fileID: 8722244907106941613, guid: d4edf5ae51ab5c94b9a6fc98a7f09420,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8722244907106941613, guid: d4edf5ae51ab5c94b9a6fc98a7f09420,
         type: 3}
@@ -1988,7 +1988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42500068}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573643766
 GameObject:
@@ -15708,7 +15708,6 @@ MonoBehaviour:
   - {fileID: 439324214}
   - {fileID: 173674548}
   invent: {fileID: 615478071}
-  hero: {fileID: 42500065}
   joystick: {fileID: 750530293}
   time: 0
 --- !u!1 &2121798964
