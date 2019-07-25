@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class manually saves any item by keypress. This is in order to make template objects in saved data files.
+ * This class manually saves any item by keypress.
  * 
  * Author: Ryan Xu
  * 
- * Authors Note:
+ * Note:
  * Things to do after saving:
- * -Update UI icon
- * 
+ * -Update UI icon in Resources folder
  * */
 public class SaveObject : MonoBehaviour
 {
