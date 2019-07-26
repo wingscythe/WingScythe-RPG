@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Interface for Weapons
+ * 
+ * Author: Ryan Xu
+ * */
 public interface IWeapon
 {
     List<Stat> Stats { get; set; }

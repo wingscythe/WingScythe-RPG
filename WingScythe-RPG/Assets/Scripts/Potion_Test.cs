@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Potion Consumable for testing purposes. 
+ * 
+ * Author: Ryan Xu
+ * */
 public class Potion_Test : MonoBehaviour, IConsumable
 {
     public void Consume()

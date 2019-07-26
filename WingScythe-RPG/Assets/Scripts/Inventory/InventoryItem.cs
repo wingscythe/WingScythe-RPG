@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Represents an inventory item
+ * 
+ * Author: Ryan Xu
+ * */
 public class InventoryItem : MonoBehaviour
 {
     public Item item;

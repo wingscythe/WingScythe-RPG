@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Controls player movement
+ * 
+ * Authors: Ryan Xu, Jeffrey Weng, Andy Zheng
+ * */
 public class PlayerController : MonoBehaviour
 {
     [Header("Prefabs")]
@@ -122,6 +127,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    /*
+     * Allows player to dash in the last inputted direction
+     * 
+     * Author: Ryan Xu
+     * */
     void PlayerDash()
     {   
         if (dash_time<=0)
