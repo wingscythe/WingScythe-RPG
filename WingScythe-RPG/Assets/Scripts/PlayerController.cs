@@ -78,19 +78,23 @@ public class PlayerController : MonoBehaviour
 
         if (leftRight < -0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == true)
         {
-            this.gameObject.transform.Translate(new Vector3(-MOVESPEED, 0f, 0f));
+            rb.velocity = new Vector2(-MOVESPEED, 0f);
         }
         else if (leftRight > 0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
-            this.gameObject.transform.Translate(new Vector3(MOVESPEED, 0f, 0f));
+            rb.velocity = new Vector2(MOVESPEED, 0f);
         }
         else if (frontBack < -0.2f)
         {
-            this.gameObject.transform.Translate(new Vector3(0f, -MOVESPEED, 0f));
+            rb.velocity = new Vector2(0f, -MOVESPEED);
         }
         else if (frontBack > 0.2f)
         {
-            this.gameObject.transform.Translate(new Vector3(0f, MOVESPEED, 0f));
+            rb.velocity = new Vector2(0f, MOVESPEED);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
 
         anim.SetFloat("Vertical_Walk", Mathf.Abs(leftRight));
@@ -143,7 +147,7 @@ public class PlayerController : MonoBehaviour
         if (dash_time > 0)
         {
             dash_time -= Time.deltaTime;
-            this.gameObject.transform.Translate(new Vector3(leftRight, frontBack, 0f) * dash_speed);
+            rb.velocity = new Vector2(leftRight, frontBack) * dash_speed;
         }
     }
 }
