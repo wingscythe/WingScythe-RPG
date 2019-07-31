@@ -4,6 +4,11 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+/*
+ * Controls the Item Database
+ * 
+ * Author: Ryan Xu
+ * */
 public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase Instance { get; set; }

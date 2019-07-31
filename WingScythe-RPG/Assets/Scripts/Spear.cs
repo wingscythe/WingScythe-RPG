@@ -3,6 +3,11 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+/*
+ * Represents Spear as a weapon
+ * 
+ * Author: Ryan Xu
+ * */
 public class Spear : MonoBehaviour, IWeapon
 { 
     [Header("Weapon Attributes")]

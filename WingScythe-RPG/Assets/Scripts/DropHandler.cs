@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropHandler : MonoBehaviour//, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     //drag variables
     public Vector2 start;
     public Transform parent;
     public GameObject pulled;
 
-   /* public void Start()
+    public void Start()
     {
         pulled = item;
     }
@@ -49,7 +49,7 @@ public class DropHandler : MonoBehaviour//, IBeginDragHandler, IDragHandler, IEn
     {
         if(!item)pulled.transform.SetParent(transform);
     }
-    */
+    
 
 
 }
