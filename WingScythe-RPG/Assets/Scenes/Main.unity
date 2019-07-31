@@ -378,11 +378,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   joystick: {fileID: 750530293}
-  MOVESPEED: 0.05
+  MOVESPEED: 3
   COOLDOWN: 3
   frontBack: 0
   leftRight: 0
-  dash_speed: 0.4
+  dash_speed: 15
   start_time: 0.15
   cooldown: 0
   dashing: 0
