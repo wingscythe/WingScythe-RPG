@@ -1911,8 +1911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {x: 0, y: 0}
+  switchpos: {x: 0, y: 0}
   parent: {fileID: 0}
   pulled: {fileID: 0}
+  img: {fileID: 752899326}
 --- !u!1 &340233246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7818,8 +7820,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {x: 0, y: 0}
+  switchpos: {x: 0, y: 0}
   parent: {fileID: 0}
   pulled: {fileID: 0}
+  img: {fileID: 336261948}
 --- !u!1 &776231930
 GameObject:
   m_ObjectHideFlags: 0
