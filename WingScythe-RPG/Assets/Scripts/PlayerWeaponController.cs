@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Controls the weapons held by the player
+ * 
+ * Author: Ryan Xu
+ * 
+ * NOTE: UNFINISHED
+ * */
 public class PlayerWeaponController : MonoBehaviour
 {
     //Fix This to IWeapons or something later.
