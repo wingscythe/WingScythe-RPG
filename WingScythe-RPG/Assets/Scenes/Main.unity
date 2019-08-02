@@ -380,6 +380,7 @@ MonoBehaviour:
   joystick: {fileID: 750530293}
   MOVESPEED: 3
   COOLDOWN: 3
+  MIN_SPEED: 0.3
   frontBack: 0
   leftRight: 0
   dash_speed: 15
