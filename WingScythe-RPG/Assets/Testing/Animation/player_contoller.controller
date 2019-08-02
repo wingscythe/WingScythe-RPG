@@ -45,7 +45,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Vertical_Walk
-    m_EventTreshold: -0.2
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3072376334737812416}
   m_Solo: 0
@@ -101,7 +101,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Horizontal_Walk
-    m_EventTreshold: 0.2
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 851101742851649865}
   m_Solo: 0
@@ -234,8 +234,8 @@ AnimatorStateTransition:
     m_ConditionEvent: Horizontal_Move
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Vertical_Walk
-    m_EventTreshold: 0.2
+    m_ConditionEvent: Horizontal_Walk
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 851101742851649865}
   m_Solo: 0
@@ -370,12 +370,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Face_Back
     m_EventTreshold: 0
-  - m_ConditionMode: 1
+  - m_ConditionMode: 2
     m_ConditionEvent: Horizontal_Move
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Vertical_Walk
-    m_EventTreshold: 0.2
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9151826332876561133}
   m_Solo: 0
@@ -527,9 +527,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Horizontal_Walk
-    m_EventTreshold: -0.2
+  - m_ConditionMode: 3
+    m_ConditionEvent: Vertical_Walk
+    m_EventTreshold: 0.1
   - m_ConditionMode: 2
     m_ConditionEvent: Face_Back
     m_EventTreshold: 0
@@ -588,7 +588,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Face_Back
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Horizontal_Walk
+    m_ConditionEvent: Vertical_Walk
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9151826332876561133}
@@ -612,9 +612,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Horizontal_Walk
-    m_EventTreshold: -0.2
+  - m_ConditionMode: 4
+    m_ConditionEvent: Vertical_Walk
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8279859146485118674}
   m_Solo: 0
@@ -665,7 +665,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8279859146485118674}
-    m_Position: {x: -50, y: 300, z: 0}
+    m_Position: {x: -100, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6489531387919240026}
     m_Position: {x: 90, y: 220, z: 0}
