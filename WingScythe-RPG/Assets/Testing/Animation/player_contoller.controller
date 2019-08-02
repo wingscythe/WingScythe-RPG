@@ -287,7 +287,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Vertical_Walk
+    m_ConditionEvent: Horizontal_Walk
     m_EventTreshold: 0.2
   - m_ConditionMode: 1
     m_ConditionEvent: Horizontal_Move
@@ -503,7 +503,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Vertical_Walk
+    m_ConditionEvent: Horizontal_Walk
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6489531387919240026}
