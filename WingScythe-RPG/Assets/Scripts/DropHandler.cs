@@ -15,12 +15,17 @@ public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public Vector2 switchpos;
     public Transform parent;
     public GameObject pulled;
-    public Image img;
+
+    public List<Image> img;
+    public List<Vector2> positions;
 
     public void Start()
     {
         pulled = item;
-        switchpos = img.transform.position;
+        for (int i = 0; i < img.Count; i++)
+        {
+            positions.Add(img[i].transform.position);
+        }
         Debug.Log(switchpos);
     }
     public GameObject item
@@ -38,7 +43,7 @@ public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData)
     {
         pulled = gameObject;
-        start = transform.position;
+        start = pulled.transform.position;
         parent = transform.parent;
         Debug.Log(parent);  
     }
@@ -53,14 +58,18 @@ public class DropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (transform.position != parent.position)
         {
-            if (transform.position.x<img.transform.position.x+2)
+            for(int i = 0; i < img.Count; i++)
             {
-                pulled = null;
-                transform.position = switchpos;
-                img.transform.position = start;
+                if (img[i].transform.position.x + 2 < transform.position.x)
+                {
+                    pulled = null;
+                    transform.position = img[i].transform.position;
+                    img[i].transform.position = start;
+                    break;
+                }
             }
-            transform.position = start;
         }
+        transform.position = start;
 
     }
 
