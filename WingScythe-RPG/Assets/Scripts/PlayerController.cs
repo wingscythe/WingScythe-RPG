@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Controls player movement
+ * 
+ * Authors: Ryan Xu, Jeffrey Weng, Andy Zheng
+ * */
 public class PlayerController : MonoBehaviour
 {
     [Header("Prefabs")]
@@ -12,8 +18,9 @@ public class PlayerController : MonoBehaviour
     [Space]
 
     [Header("Weapon Attributes")]
-    public float MOVESPEED = 0.05f;
+    public float MOVESPEED = 3f;
     public float COOLDOWN = 3f;
+    public float MIN_SPEED = 0.3f;
 
     [Space]
 
@@ -67,25 +74,88 @@ public class PlayerController : MonoBehaviour
 
     void movement()
     {
+        // move character 
+        leftRight = joystick.Horizontal;
+        frontBack = joystick.Vertical;
 
+        // add min bounds so char doesnt just slide slowly 
+        if (Mathf.Abs(leftRight) > MIN_SPEED || Mathf.Abs(frontBack) > MIN_SPEED)
+        {
+            Vector2 v = new Vector2(leftRight * MOVESPEED, frontBack * MOVESPEED);
+            rb.velocity = v;
+        }
+
+        // set character sprite direction 
+        if (Mathf.Abs(leftRight) > MIN_SPEED || Mathf.Abs(frontBack) > MIN_SPEED)
+        {
+
+            if (Mathf.Abs(leftRight) < Mathf.Abs(frontBack))
+            {
+                // if moving more up or down
+                anim.SetBool("Horizontal_Move", false);
+                anim.SetFloat("Vertical_Walk", Mathf.Abs(frontBack));
+
+                if (frontBack > 0)
+                {
+                    // moving up
+                    anim.SetBool("Face_Back", true);
+                }
+                else
+                {
+                    // moving down 
+                    anim.SetBool("Face_Back", false);
+                }
+
+            }
+            else
+            {
+                // if moving more right or left
+                anim.SetBool("Horizontal_Move", true);
+                anim.SetFloat("Horizontal_Walk", Math.Abs(leftRight));
+                anim.SetBool("Face_Back", false);
+                if (leftRight > 0)
+                {
+                    // moving right
+                    this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                }
+                else
+                {
+                    // moving left 
+                    this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                }
+            }
+        }
+        else
+        {
+            // character not moving
+            rb.velocity = Vector2.zero;
+            anim.SetFloat("Vertical_Walk", 0);
+            anim.SetFloat("Horizontal_Walk", 0);
+        }
+
+        /*
         leftRight = joystick.Horizontal;
         frontBack = joystick.Vertical;
 
         if (leftRight < -0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == true)
         {
-            this.gameObject.transform.Translate(new Vector3(-MOVESPEED, 0f, 0f));
+            rb.velocity = new Vector2(-MOVESPEED, 0f);
         }
         else if (leftRight > 0.2f && this.gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
-            this.gameObject.transform.Translate(new Vector3(MOVESPEED, 0f, 0f));
+            rb.velocity = new Vector2(MOVESPEED, 0f);
         }
         else if (frontBack < -0.2f)
         {
-            this.gameObject.transform.Translate(new Vector3(0f, -MOVESPEED, 0f));
+            rb.velocity = new Vector2(0f, -MOVESPEED);
         }
         else if (frontBack > 0.2f)
         {
-            this.gameObject.transform.Translate(new Vector3(0f, MOVESPEED, 0f));
+            rb.velocity = new Vector2(0f, MOVESPEED);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
 
         anim.SetFloat("Vertical_Walk", Mathf.Abs(leftRight));
@@ -119,9 +189,14 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Face_Back", false);
             anim.SetBool("Horizontal_Move", false);
         }
-
+        */
     }
 
+    /*
+     * Allows player to dash in the last inputted direction
+     * 
+     * Author: Ryan Xu
+     * */
     void PlayerDash()
     {   
         if (dash_time<=0)
@@ -133,7 +208,7 @@ public class PlayerController : MonoBehaviour
         if (dash_time > 0)
         {
             dash_time -= Time.deltaTime;
-            this.gameObject.transform.Translate(new Vector3(leftRight, frontBack, 0f) * dash_speed);
+            rb.velocity = new Vector2(leftRight, frontBack) * dash_speed;
         }
     }
 }

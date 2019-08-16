@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Controls the UI For the inventory
+ * 
+ * Authors: Ryan Xu, Jeffrey Weng
+ * */
 public class InventoryUI : MonoBehaviour
 {
     //Empty Container for duplication

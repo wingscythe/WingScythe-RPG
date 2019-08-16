@@ -25,10 +25,15 @@ public class InventoryController : MonoBehaviour
         pwc = GetComponent<PlayerWeaponController>();
         pc = GetComponent<PlayerConsume>();
 
-        // Not implemented yet: GiveItem("spear");
+        GiveItem("spear");
         GiveItem("potion_test");
     }
-
+       
+    /*
+     * Adds given item to player inventory using the item's ID
+     * 
+     * Author: Ryan Xu
+     */
     public void GiveItem(string id)
     {
         Item item = ItemDatabase.Instance.GetItem(id);
@@ -36,6 +41,10 @@ public class InventoryController : MonoBehaviour
         {
             items.Add(item);
             UIEventHandler.ItemAddedToInventory(item);
+        }
+        else
+        {
+            Debug.Log("Item is NULL");
         }
     }
 

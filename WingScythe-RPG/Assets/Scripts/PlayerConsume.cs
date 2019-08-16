@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Enables the player to use consumables.
+ * 
+ * Author: Ryan Xu
+ * */
 public class PlayerConsume : MonoBehaviour
 {
     PlayerStats stats;
@@ -12,6 +17,11 @@ public class PlayerConsume : MonoBehaviour
         stats = GetComponent<PlayerStats>();
     }
 
+    /*
+     * Consumes a given item | Parameter: Item item - given item 
+     * 
+     * Author: Ryan Xu
+     **/
     public void ConsumeItem(Item item)
     {
         GameObject itemSpawn = Instantiate(Resources.Load<GameObject>("Consumables/" + item.name));

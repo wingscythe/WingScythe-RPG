@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/*
+ * Represents Item object for database.
+ * 
+ * Author: Ryan Xu
+ * */
 [Serializable]
 public class Item
 {
@@ -17,5 +22,6 @@ public class Item
         name = init_name;
         id = init_id;
         description = init_desc;
+        item_mod = false;
     }
 }
