@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class movement : StateMachineBehaviour
 {
-    public GameObject target;
+    public GameObject self;
+    public Rigidbody2D rb2;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
     private int choice = 0;
     RaycastHit2D up;
     RaycastHit2D down;
@@ -13,15 +18,12 @@ public class movement : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        target = GameObject.FindGameObjectWithTag("Slime");
-        up = Physics2D.Raycast(target.transform.position, new Vector2(0, 1));
-        down = Physics2D.Raycast(target.transform.position, new Vector2(0, -1));
-        left = Physics2D.Raycast(target.transform.position, new Vector2(-1, 0));
-        right = Physics2D.Raycast(target.transform.position, new Vector2(1, 0));
-        Debug.DrawRay(target.transform.position, new Vector2(0, 1));
-        Debug.DrawRay(target.transform.position, new Vector2(0, -1));
-        Debug.DrawRay(target.transform.position, new Vector2(-1, 0));
-        Debug.DrawRay(target.transform.position, new Vector2(1, 0));
+        self = GameObject.FindGameObjectWithTag("Slime");
+        rb2 = self.GetComponent<Rigidbody2D>();
+        up = Physics2D.Raycast(self.transform.position, new Vector2(0, 1));
+        down = Physics2D.Raycast(self.transform.position, new Vector2(0, -1));
+        left = Physics2D.Raycast(self.transform.position, new Vector2(-1, 0));
+        right = Physics2D.Raycast(self.transform.position, new Vector2(1, 0));
 
         float randPercent = Random.Range(0f, 100f);
         Debug.Log(randPercent);
@@ -39,18 +41,18 @@ public class movement : StateMachineBehaviour
         {
             choice = 3;
             Debug.Log("left");
-            if (target.GetComponent<SpriteRenderer>().flipX == true)
+            if (self.GetComponent<SpriteRenderer>().flipX == true)
             {
-                target.GetComponent<SpriteRenderer>().flipX = false;
+                self.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
         else if (right.collider != null && 75 <= randPercent && randPercent < 100)
         {
             choice = 4;
             Debug.Log("right");
-            if (target.GetComponent<SpriteRenderer>().flipX == false)
+            if (self.GetComponent<SpriteRenderer>().flipX == false)
             {
-                target.GetComponent<SpriteRenderer>().flipX = true;
+                self.GetComponent<SpriteRenderer>().flipX = true;
             }
         }
         Debug.Log(choice);
@@ -59,35 +61,36 @@ public class movement : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.DrawRay(target.transform.position, new Vector2(0, 10));
-        Debug.DrawRay(target.transform.position, new Vector2(0, -10));
-        Debug.DrawRay(target.transform.position, new Vector2(-10, 0));
-        Debug.DrawRay(target.transform.position, new Vector2(10, 0));
-        if (up.collider != null || down.collider != null || left.collider != null || right.collider != null) {
+        if (self.transform.position.x < minX || self.transform.position.x > maxX || self.transform.position.y < minY || self.transform.position.y > maxY) {
             animator.SetBool("Walk", false);
             Debug.Log("Hit");
         }
         else if (choice == 1)
         {
-            target.transform.Translate(new Vector2(0, 0.05f));
+            rb2.velocity = new Vector2(0, 0.1f);
+            //target.transform.Translate(new Vector2(0, 0.05f));
         }
         else if (choice == 2)
         {
-            target.transform.Translate(new Vector2(0, -0.05f));
+            rb2.velocity = new Vector2(0, -0.1f);
+            //target.transform.Translate(new Vector2(0, -0.05f));
         }
         else if (choice == 3)
         {
-            target.transform.Translate(new Vector2(-0.05f, 0));
+            rb2.velocity = new Vector2(-0.1f, 0);
+            //target.transform.Translate(new Vector2(-0.05f, 0));
         }
         else if (choice == 4)
         {
-            target.transform.Translate(new Vector2(0.05f, 0));
+            rb2.velocity = new Vector2(0.1f, 0);
+            //target.transform.Translate(new Vector2(0.05f, 0));
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        rb2.velocity = Vector2.zero;
         animator.SetBool("Walk", false);
     }
 

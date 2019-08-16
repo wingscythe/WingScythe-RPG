@@ -37,7 +37,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5feb936e5d56c44b82e3d45111d66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  self: {fileID: 0}
+  rb2: {fileID: 0}
+  minX: -5.35
+  maxX: 11.5
+  minY: 10.25
+  maxY: 20.5
 --- !u!1101 &-3717561325932618229
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -79,8 +84,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -913613263070020506}
   - {fileID: -3717561325932618229}
-  m_StateMachineBehaviours:
-  - {fileID: -643923138613234555}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -173,20 +177,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &-643923138613234555
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a55609349d05a040b994aaeac66e3ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  player: {fileID: 0}
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -1830,7 +1820,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110221818}
-    m_Position: {x: 360, y: 0, z: 0}
+    m_Position: {x: 320, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110207406}
     m_Position: {x: 550, y: 70, z: 0}
@@ -1845,9 +1835,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 0, y: 36, z: 0}
+  m_AnyStatePosition: {x: -70, y: 50, z: 0}
   m_EntryPosition: {x: 70, y: 0, z: 0}
-  m_ExitPosition: {x: 0, y: 72, z: 0}
+  m_ExitPosition: {x: -80, y: 220, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 110221818}
 --- !u!74 &2598809906642196802

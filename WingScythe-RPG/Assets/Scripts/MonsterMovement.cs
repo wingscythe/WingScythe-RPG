@@ -34,21 +34,10 @@ public class MonsterMovement : MonoBehaviour
         while (this.gameObject.activeSelf)
         {
             yield return new WaitForSeconds(time);
-            if (Vector2.Distance(player.transform.position, this.gameObject.transform.position) < 10)
+            if (Vector2.Distance(player.transform.position, this.gameObject.transform.position) < 1)
             {
                 anim.SetBool("Walk2", true);
                 anim.SetBool("Walk", false);
-                /*Vector2 travel = Vector2.MoveTowards(this.gameObject.transform.position, player.transform.position, 0.25f);
-                this.gameObject.transform.position = travel;
-                
-                if (player.transform.position.x < this.gameObject.transform.position.x)
-                {
-                    this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-                }
-                else if (player.transform.position.x > this.gameObject.transform.position.x)
-                {
-                    this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-                }*/
             }
             else
             {
