@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This controls the movement the basic monster does.
+ * 
+ * Author: Andy Zheng
+ * **/
 public class MonsterMovement : MonoBehaviour
 {
     public GameObject player;
@@ -10,7 +15,10 @@ public class MonsterMovement : MonoBehaviour
 
     public RaycastHit2D up, down, left, right;
 
-    // Start is called before the first frame update
+    /**
+     * Initializes all the fields except for player.
+     * Starts a Coroutine which controls what the slime decides to do.
+     * **/
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
@@ -21,44 +29,37 @@ public class MonsterMovement : MonoBehaviour
         right = Physics2D.Raycast(this.transform.position, new Vector2(1, 0), 1f);
         StartCoroutine(movementDelay(0.5f));
     }
-
-    private void FixedUpdate()
-    {
-        Debug.DrawRay(this.transform.position, new Vector2(0, 1));
-        Debug.DrawRay(this.transform.position, new Vector2(0, -1));
-        Debug.DrawRay(this.transform.position, new Vector2(-1, 0));
-        Debug.DrawRay(this.transform.position, new Vector2(1, 0));
-    }
+    
+    /**
+     * This is the Coroutine, which controls the movement. If the player is within a 5 radius 
+     * 
+     * @param: 
+     * float time is the time it takes 
+     * **/
     IEnumerator movementDelay(float time)
     {
         while (this.gameObject.activeSelf)
         {
             yield return new WaitForSeconds(time);
-            if (Vector2.Distance(player.transform.position, this.gameObject.transform.position) < 1)
-            {
-                anim.SetBool("Walk2", true);
-                anim.SetBool("Walk", false);
-            }
-            else
-            {
-                idle_Movement();
-            }
+            idle_Movement();
         }
     }
-
+    
+    /**
+     * 80% chance of moving randomly and 20% chance of staying in idle state. 
+     * 
+     * **/
     void idle_Movement()
     { 
         float randPercent = Random.Range(0f, 100f);
         if (randPercent < 80)
         {
             anim.SetBool("Walk", true);
-            anim.SetBool("Walk2", false);
         }
         else if (randPercent >= 80 && randPercent < 100)
         {
             anim.SetBool("Walk", false);
-            anim.ResetTrigger("Attack");
-            anim.SetBool("Walk2", false);
+            anim.SetBool("Attack", false);
         }
         
     }
