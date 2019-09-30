@@ -12,7 +12,7 @@ public class MonsterMovement : MonoBehaviour
     public GameObject player;
     public Animator anim;
     public Rigidbody2D rb;
-
+    public Collider2D self_col;
     public RaycastHit2D up, down, left, right;
 
     /**
@@ -23,6 +23,7 @@ public class MonsterMovement : MonoBehaviour
     {
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        self_col = this.gameObject.GetComponent<CircleCollider2D>();
         up = Physics2D.Raycast(transform.position, new Vector2(0, 1), 1f);
         down = Physics2D.Raycast(transform.position, new Vector2(0, -1), 1f);
         left = Physics2D.Raycast(this.transform.position, new Vector2(-1, 0), 1f);
@@ -30,6 +31,24 @@ public class MonsterMovement : MonoBehaviour
         StartCoroutine(movementDelay(0.5f));
     }
     
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            anim.SetBool("Attack", true);
+        }
+    }
+    void OnCollisionStay2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            anim.SetBool("Attack", true);
+        }
+    }
+    void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            rb.velocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            anim.SetBool("Attack", false);
+        }
+    }
     /**
      * This is the Coroutine, which controls the movement. If the player is within a 5 radius 
      * 
